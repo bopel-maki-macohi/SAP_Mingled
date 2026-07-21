@@ -7,5 +7,9 @@ class IntroState extends FlxState
 	override function create()
 	{
 		super.create();
+
+		SAPAudioManager.playMusic({
+			path: get_file_ogg(get_path_ost('BigBang')),
+		});
 	}
 }
