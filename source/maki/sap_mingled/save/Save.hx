@@ -114,7 +114,7 @@ class Save
 			controls: data.controls,
 		}
 
-		trace('Save Data:\n${data}');
+		trace('Ending Save Data:\n${data}');
 		FlxG.save.flush();
 	}
 
