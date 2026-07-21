@@ -31,8 +31,6 @@ class IntroState extends FlxState
 
 	function onCutsceneStart()
 	{
-		trace(FlxG.sound.music.length);
-
 		var cutsceneHalfLength = (FlxG.sound.music.length / 2000) ?? 1;
 		if (cutsceneHalfLength < 1) cutsceneHalfLength = 1;
 
