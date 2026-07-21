@@ -30,7 +30,6 @@ class Save
 		load();
 		#end
 
-
 		Application.current.onExit.add(function(l)
 		{
 			save();
@@ -117,5 +116,31 @@ class Save
 
 		trace('Save Data:\n${data}');
 		FlxG.save.flush();
+	}
+
+	public static function addGlobalPersistanceKey(key:String)
+	{
+		if (data?.game == null) return;
+
+		if (!hasGlobalPersistanceKey(key)) data.game.persistance_keys.push(key);
+	}
+
+	public static function addLocalPersistanceKey(key:String, slot:Int = 0)
+	{
+		if (data?.game?.slots == null) return;
+
+		if (data.game.slots[slot] == null) return;
+
+		if (!hasLocalPersistanceKey(key, slot)) data.game.slots[slot].persistance_keys.push(key);
+	}
+
+	public static function hasGlobalPersistanceKey(key:String):Bool
+	{
+		return data?.game?.persistance_keys?.contains(key) ?? false;
+	}
+
+	public static function hasLocalPersistanceKey(key:String, slot:Int = 0):Bool
+	{
+		return data?.game?.slots[slot]?.persistance_keys?.contains(key) ?? false;
 	}
 }

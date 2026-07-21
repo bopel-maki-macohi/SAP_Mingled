@@ -6,6 +6,28 @@ class StartingState
 {
 	public static function get():InitialState
 	{
+		/**
+		 * Save this for when theres
+		 * something worth warning people about.
+		 * 
+		 * Example: Flashing lights
+		 */
+		/**
+			if (!Save.data.game.persistance_keys.contains(SavePersistanceKey.GLOBAL_FIRST_TIME))
+			{
+				Save.addGlobalPersistanceKey(SavePersistanceKey.GLOBAL_FIRST_TIME);
+
+				return FirstTimeState;
+			}
+		 */
+
+		if (!Save.data.game.persistance_keys.contains(SavePersistanceKey.GLOBAL_SEEN_INTRO))
+		{
+			Save.addGlobalPersistanceKey(SavePersistanceKey.GLOBAL_SEEN_INTRO);
+
+			return IntroState;
+		}
+
 		return null;
 	}
 }
