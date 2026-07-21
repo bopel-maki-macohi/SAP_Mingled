@@ -23,7 +23,11 @@ class SAPAudioManager
 
 		var music = FlxG.sound.music;
 
-		if (music == null) music = new FlxSound();
+		if (music == null)
+		{
+			music = new FlxSound();
+			FlxG.sound.list.add(music);
+		}
 
 		final fadeIn = params.fade_in && params.fade_in_duration > 0.0;
 		final fadeOut = params.fade_out && params.fade_out_duration > 0.0;
