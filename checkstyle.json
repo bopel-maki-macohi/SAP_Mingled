@@ -1,0 +1,12 @@
+{
+    "defaultSeverity": "IGNORE",
+    "checks": [
+        {
+            "type": "Return",
+            "props": {
+                "severity": "WARNING",
+                "enforceReturnTypeForAnonymous": true
+            }
+        }
+    ]
+}
