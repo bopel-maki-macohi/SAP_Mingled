@@ -21,6 +21,7 @@ class IntroState extends FlxState
 
 		SAPAudioManager.playMusic({
 			path: get_path_ost('BigBang'),
+			looped: false,
 		});
 
 		FlxTween.tween(cutsceneAsset, {alpha: 1}, cutsceneHalfLength, {
