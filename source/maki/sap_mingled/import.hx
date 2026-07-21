@@ -7,3 +7,5 @@ import maki.sap_mingled.util.*;
 #end
 import maki.sap_mingled.util.typedefs.*;
 import maki.sap_mingled.util.typedefs.functions.*;
+import maki.sap_mingled.util.typedefs.sap.*;
+import maki.sap_mingled.util.typedefs.standard.*;
