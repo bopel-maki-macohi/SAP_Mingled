@@ -1,12 +1,15 @@
 {
-    "defaultSeverity": "IGNORE",
+    "defaultSeverity": "WARNING",
     "checks": [
         {
             "type": "Return",
             "props": {
-                "severity": "WARNING",
                 "enforceReturnTypeForAnonymous": true
             }
+        },
+        {
+            "type": "UnusedImport",
+            "props": {}
         }
     ]
 }

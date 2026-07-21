@@ -6,6 +6,6 @@ class Main extends FlxGame
 {
 	public function new()
 	{
-		super(640, 480, StartingState, 60, 60, true, false);
+		super(640, 480, StartingState.get(), 60, 60, true, false);
 	}
 }
