@@ -1,6 +1,5 @@
 package maki.sap_mingled;
 
-import flixel.FlxG;
 import flixel.FlxGame;
 import openfl.events.Event;
 

@@ -9,7 +9,7 @@ class IntroState extends FlxState
 		super.create();
 
 		SAPAudioManager.playMusic({
-			path: get_file_ogg(get_path_ost('BigBang')),
+			path: get_path_ost('BigBang'),
 		});
 	}
 }
