@@ -6,6 +6,11 @@
       "version": "6.2.0"
     },
     {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.7.0"
+    },
+    {
       "name": "lime",
       "type": "haxelib",
       "version": "8.3.2"

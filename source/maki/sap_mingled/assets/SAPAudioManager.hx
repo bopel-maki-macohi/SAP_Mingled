@@ -11,7 +11,9 @@ class SAPAudioManager
 
 		final fadeIn = params.fade_in && params.fade_in_duration > 0.0;
 
-		var sound = FlxG.sound.play(params.path);
+		var sound = FlxG.sound.play(params.path, 1.0, false, null, true, params.on_complete);
+
+		if (params.on_start != null) params.on_start();
 
 		if (fadeIn) sound.fadeIn(params.fade_in_duration, 0, 1);
 		else sound.play();
@@ -21,30 +23,14 @@ class SAPAudioManager
 	{
 		if (params == null) return;
 
-		var music = FlxG.sound.music;
-
-		if (music == null)
-		{
-			music = new FlxSound();
-			FlxG.sound.list.add(music);
-		}
+		var music = FlxG.sound.playMusic(params.path, null, 1.0, params?.looped == true, params.on_complete);
 
 		final fadeIn = params.fade_in && params.fade_in_duration > 0.0;
 		final fadeOut = params.fade_out && params.fade_out_duration > 0.0;
 
-		function loadMusic()
-		{
-			music.load(params.path);
-
-			var loopUntil:NullInt = params?.loopUntil ?? -1;
-
-			if (loopUntil != null) music.setup(1.0, loopUntil);
-			else music.setup(1.0, params?.looped == true);
-		}
-
 		function playTheMusic()
 		{
-			loadMusic();
+			if (params.on_start != null) params.on_start();
 
 			if (fadeIn) music.fadeIn(params.fade_in_duration, 0, 1);
 			else music.play();

@@ -5,7 +5,6 @@ typedef PlayMusicParams =
 	> PlaySoundParam,
 
 	var ?looped:Bool;
-	var ?loopUntil:NullInt;
 
 	var ?fade_out:Bool;
 	var ?fade_out_duration:NullFloat;
