@@ -7,4 +7,6 @@ typedef SaveData =
 	var game:SaveGameData;
 
 	var ui:SaveUIData;
+
+	var controls:SaveControlsData;
 }

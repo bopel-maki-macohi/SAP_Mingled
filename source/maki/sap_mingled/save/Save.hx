@@ -5,7 +5,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 2;
+	public static final SAVE_VERSION:NullInt = 3;
 
 	public static var data(get, set):SaveData;
 
@@ -22,14 +22,29 @@ class Save
 	{
 		FlxG.save.bind('SAP_Mingled', 'Maki');
 
+		final raw_data = FlxG.save.data.sap;
+
+		#if SAVE_CLEAR
+		clear();
+		#else
 		load();
+		#end
+
 
 		Application.current.onExit.add(function(l)
 		{
 			save();
 		});
 
-		trace('Save Data:\n${data}');
+		if (raw_data == data)
+		{
+			trace('Loaded Save Data:\n${data}');
+		}
+		else
+		{
+			trace('Old Save Data:\n${raw_data}');
+			trace('New Save Data:\n${data}');
+		}
 	}
 
 	public static function clear()
@@ -45,12 +60,13 @@ class Save
 			save_version: null,
 			game: null,
 			ui: null,
+			controls: null,
 		}
 
 		data.game ??= {
 			persistance_keys: null,
 			slots: null,
-		};
+		}
 
 		data.save_version ??= Save.SAVE_VERSION;
 
@@ -60,8 +76,17 @@ class Save
 
 		data.save_version = Save.SAVE_VERSION;
 
+		data.game ??= {
+			persistance_keys: null,
+			slots: null,
+		}
+
 		data.game.persistance_keys ??= [];
 		data.game.slots ??= [];
+
+		data.ui ??= {};
+
+		data.controls ??= {};
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)
@@ -77,16 +102,20 @@ class Save
 		data.game = {
 			persistance_keys: data.game.persistance_keys,
 			slots: data.game.slots,
-		};
+		}
 
 		data.ui = {};
+
+		data.controls = {};
 
 		data = {
 			save_version: Save.SAVE_VERSION,
 			game: data.game,
 			ui: data.ui,
-		};
+			controls: data.controls,
+		}
 
+		trace('Save Data:\n${data}');
 		FlxG.save.flush();
 	}
 }
