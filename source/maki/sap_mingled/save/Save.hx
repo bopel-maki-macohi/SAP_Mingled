@@ -28,6 +28,8 @@ class Save
 		{
 			save();
 		});
+
+		trace('Save Data:\n\t${data}');
 	}
 
 	public static function load()
