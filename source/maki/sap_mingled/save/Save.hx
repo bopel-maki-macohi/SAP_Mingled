@@ -29,7 +29,7 @@ class Save
 			save();
 		});
 
-		trace('Save Data:\n\t${data}');
+		trace('Save Data:\n${data}');
 	}
 
 	public static function load()
