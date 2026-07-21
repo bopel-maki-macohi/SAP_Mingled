@@ -30,5 +30,8 @@ class IntroState extends FlxState
 		}));
 	}
 
-	function cutsceneComplete() {}
+	function cutsceneComplete()
+	{
+		trace('cutscene done');
+	}
 }
