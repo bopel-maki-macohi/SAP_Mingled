@@ -8,17 +8,8 @@ class SelectionArrow extends FlxSprite
 
 	function set_selected(_selected:Bool):Bool
 	{
-		if (animation.name != 'select' )
-		{
-			if (_selected)
-			{
-				if (animation.name != 'selected') animation.play('selected');
-			}
-			else
-			{
-				if (animation.name != 'unselected') animation.play('unselected');
-			}
-		}
+		if (_selected) animation.play('selected');
+		else animation.play('unselected');
 
 		return selected = _selected;
 	}
@@ -28,16 +19,8 @@ class SelectionArrow extends FlxSprite
 		super(x, y);
 
 		loadGraphic(get_path_game_menus('selectionArrow'), true, 8, 8);
-		animation.add('selected', [0, 2], 24);
+		animation.add('selected', [0]);
 		animation.add('unselected', [1]);
-		animation.add('select', [3], 4, false);
-
-		animation.play('unselected');
-
-		animation.onFinish.add(function(anim)
-		{
-			if (anim == 'select') animation.play('selected');
-		});
 
 		setGraphicSize(graphicSize);
 		updateHitbox();
