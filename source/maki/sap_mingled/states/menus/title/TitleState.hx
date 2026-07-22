@@ -49,16 +49,15 @@ class TitleState extends SAPState
 
 		add(new GridBG());
 
-		protoLogo = new FlxText(0, 0, 0, Constants.GAME_TITLE, 32);
+		protoLogo = new FlxText(0, 0, FlxG.width, Constants.GAME_TITLE, 32);
 		add(protoLogo);
 		protoLogo.alignment = CENTER;
 		protoLogo.screenCenter();
 
 		protoLogo.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
-		protoLogo.fieldWidth = protoLogo.width + 15;
 
 		protoLogo.y -= protoLogo.height * 4;
-		
+
 		buttons = new FlxTypedSpriteContainer<MenuButton>();
 		add(buttons);
 
