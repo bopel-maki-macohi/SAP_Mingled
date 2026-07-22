@@ -3,13 +3,12 @@ package maki.sap_mingled.states.menus.play;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxState;
 import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
 @localePrefix('menus.play')
-class PlayMenuState extends FlxState
+class PlayMenuState extends SAPState
 {
 	var icons:FlxTypedSpriteContainer<LevelIcon>;
 	var iconsCam:FlxCamera;
@@ -37,10 +36,10 @@ class PlayMenuState extends FlxState
 		super.create();
 
 		add(new GridBG());
-		
+
 		icons = new FlxTypedSpriteContainer<LevelIcon>();
 		iconsCam = new FlxCamera();
-		iconsCamFollow = new FlxObject(0,FlxG.height / 8);
+		iconsCamFollow = new FlxObject(0, FlxG.height / 8);
 
 		FlxG.cameras.add(iconsCam, false);
 		iconsCam.bgColor = FlxColor.TRANSPARENT;
@@ -59,7 +58,7 @@ class PlayMenuState extends FlxState
 			icons.add(icon);
 		}
 
-		selectionText = new FlxText(0,0,0,'2parkeR', 32);
+		selectionText = new FlxText(0, 0, 0, '2parkeR', 32);
 		add(selectionText);
 	}
 
@@ -67,7 +66,13 @@ class PlayMenuState extends FlxState
 	{
 		super.update(elapsed);
 
-		if (Controls.justPressed('ui_back')) FlxG.switchState(() -> new TitleState());
+		if (Controls.justPressed('ui_back'))
+		{
+			outroDelay = SAPAudioManager.playSound({
+				path: get_path_game_sounds('cancel')
+			})?.length / 2000 ?? 0;
+			FlxG.switchState(() -> new TitleState());
+		}
 
 		for (icon in icons)
 		{
@@ -95,5 +100,9 @@ class PlayMenuState extends FlxState
 
 		if (selection < 0) selection = icons.length - 1;
 		if (selection > icons.length - 1) selection = 0;
+
+		SAPAudioManager.playSound({
+			path: get_path_game_sounds('scroll')
+		});
 	}
 }

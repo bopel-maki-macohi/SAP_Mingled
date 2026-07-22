@@ -3,12 +3,11 @@ package maki.sap_mingled.states.menus.title;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxState;
 import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 import flixel.text.FlxText;
 
 @localePrefix('menus.title')
-class TitleState extends FlxState
+class TitleState extends SAPState
 {
 	var protoLogo:FlxText;
 
@@ -103,7 +102,13 @@ class TitleState extends FlxState
 		if (Controls.justPressed('ui_up')) changeSelection(-1);
 		if (Controls.justPressed('ui_down')) changeSelection(1);
 
-		if (Controls.justPressed('ui_accept')) for (button in buttons) button.select(selection);
+		if (Controls.justPressed('ui_accept'))
+		{
+			outroDelay = SAPAudioManager.playSound({
+				path: get_path_game_sounds('select')
+			})?.length / 2000 ?? 0;
+			for (button in buttons) button.select(selection);
+		}
 	}
 
 	function changeSelection(amount:Int)
@@ -112,5 +117,9 @@ class TitleState extends FlxState
 
 		if (selection < 0) selection = buttons.length - 1;
 		if (selection > buttons.length - 1) selection = 0;
+
+		SAPAudioManager.playSound({
+			path: get_path_game_sounds('scroll')
+		});
 	}
 }

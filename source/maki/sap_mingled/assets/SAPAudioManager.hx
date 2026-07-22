@@ -1,12 +1,13 @@
 package maki.sap_mingled.assets;
 
 import flixel.FlxG;
+import flixel.sound.FlxSound;
 
 class SAPAudioManager
 {
-	public static function playSound(params:PlaySoundParam)
+	public static function playSound(params:PlaySoundParam):FlxSound
 	{
-		if (params == null) return;
+		if (params == null) return null;
 
 		final fadeIn = params.fade_in && params.fade_in_duration > 0.0;
 
@@ -16,11 +17,13 @@ class SAPAudioManager
 
 		if (fadeIn) sound.fadeIn(params.fade_in_duration, 0, 1);
 		else sound.play();
+
+		return sound;
 	}
 
-	public static function playMusic(params:PlayMusicParams)
+	public static function playMusic(params:PlayMusicParams):FlxSound
 	{
-		if (params == null) return;
+		if (params == null) return null;
 
 		var music = FlxG.sound.playMusic(params.path, null, 1.0, params?.looped == true, params.on_complete);
 
@@ -43,5 +46,7 @@ class SAPAudioManager
 			});
 		}
 		else playTheMusic();
+
+		return music;
 	}
 }
