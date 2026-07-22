@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxState;
 import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
 @localePrefix('menus.play')
@@ -28,6 +29,8 @@ class PlayMenuState extends FlxState
 	];
 
 	var selection = 0;
+
+	var selectionText:FlxText;
 
 	override function create()
 	{
@@ -53,6 +56,9 @@ class PlayMenuState extends FlxState
 			var icon = new LevelIcon(entry, i);
 			icons.add(icon);
 		}
+
+		selectionText = new FlxText(0,0,0,'2parkeR', 32);
+		add(selectionText);
 	}
 
 	override function update(elapsed:Float)
@@ -75,6 +81,10 @@ class PlayMenuState extends FlxState
 
 		if (Controls.justPressed('ui_left')) changeSelection(-1);
 		if (Controls.justPressed('ui_right')) changeSelection(1);
+
+		selectionText.text = getLanguageKey('level.${order[selection]}.title');
+		selectionText.screenCenter();
+		selectionText.y -= selectionText.height * 2;
 	}
 
 	function changeSelection(amount:Int)

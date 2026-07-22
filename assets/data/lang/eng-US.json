@@ -9,6 +9,7 @@
 		"ui.debug.display.memory": "Memory",
 		"menus.title.option.play": "Play",
 		"menus.title.option.options": "Options",
-		"menus.title.option.credits": "Credits"
+		"menus.title.option.credits": "Credits",
+		"level.unknown.title": "Unknown"
 	}
 }
