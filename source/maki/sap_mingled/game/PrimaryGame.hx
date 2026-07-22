@@ -6,7 +6,7 @@ import flixel.util.FlxColor;
 import lime.app.Application;
 import openfl.events.Event;
 
-class MainGame extends FlxGame
+class PrimaryGame extends FlxGame
 {
 	public function new()
 	{

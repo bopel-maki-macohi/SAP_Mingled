@@ -11,7 +11,6 @@ import flixel.text.FlxText;
 @localePrefix('menus.title')
 class TitleState extends FlxState
 {
-	var protoBG:FlxBackdrop;
 	var protoLogo:FlxText;
 
 	var versionText:FlxText;
@@ -46,11 +45,7 @@ class TitleState extends FlxState
 	{
 		super.create();
 
-		protoBG = new FlxBackdrop(get_path_game_menus('grid/${Save.data?.ui?.grid_skin ?? 'modern'}'));
-		protoBG.setGraphicSize(32);
-		add(protoBG);
-
-		protoBG.velocity.set(16, 16);
+		Main.secondaryGame.changeState(() -> new GridState());
 
 		protoLogo = new FlxText(0, 0, FlxG.width, Constants.GAME_TITLE, 32);
 		add(protoLogo);
