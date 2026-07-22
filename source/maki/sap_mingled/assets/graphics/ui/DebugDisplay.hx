@@ -1,4 +1,4 @@
-package maki.sap_mingled.assets.graphics;
+package maki.sap_mingled.assets.graphics.ui;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
