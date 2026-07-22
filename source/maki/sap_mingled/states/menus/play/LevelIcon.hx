@@ -10,6 +10,9 @@ class LevelIcon extends FlxSprite
 
 		loadGraphic(get_path_game_menus_play('levelIcons/${icon ?? 'unknown'}'));
 
+		setGraphicSize(256);
+		updateHitbox();
+
 		this.ID = ID;
 	}
 }

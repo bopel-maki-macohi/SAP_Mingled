@@ -35,7 +35,7 @@ class PlayMenuState extends FlxState
 
 		icons = new FlxTypedSpriteContainer<LevelIcon>();
 		iconsCam = new FlxCamera();
-		iconsCamFollow = new FlxObject();
+		iconsCamFollow = new FlxObject(0,FlxG.height / 8);
 
 		FlxG.cameras.add(iconsCam, false);
 		iconsCam.bgColor = FlxColor.TRANSPARENT;
