@@ -46,6 +46,6 @@ class IntroState extends FlxState
 
 	function onCutsceneEnd()
 	{
-		trace('cutscene done');
+		FlxG.switchState(StartingState.get());
 	}
 }
