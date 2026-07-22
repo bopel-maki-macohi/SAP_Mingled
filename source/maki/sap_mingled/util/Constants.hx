@@ -4,6 +4,8 @@ import lime.app.Application;
 
 class Constants
 {
+	public static final GAME_INFO:GameInfo = new GameInfo();
+
 	public static var GAME_TITLE(get, never):String;
 
 	static function get_GAME_TITLE():String return Application?.current?.meta?.get('name') ?? 'N / A';

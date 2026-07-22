@@ -12,7 +12,8 @@ class Main extends FlxGame
 
 		LanguageManager.init();
 
-		super(640, 480, StartingState.get(), 60, 60, true, false);
+		var gameMeta = ClassUtil.getMetadata(Constants.GAME_INFO);
+		super(gameMeta.dimensions[0], gameMeta.dimensions[1], StartingState.get(), gameMeta.framerate[0], gameMeta.framerate[0], !gameMeta.splash[0], false);
 	}
 
 	public static var mouseVisible:Bool = false;

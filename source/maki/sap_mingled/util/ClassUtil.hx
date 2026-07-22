@@ -2,27 +2,20 @@ package maki.sap_mingled.util;
 
 class ClassUtil
 {
-	public static function getMetadata(_cls:Any):Dynamic<Array<Dynamic>>
-	{
-		final cls = Type.getClass(_cls ?? null);
-		final clsMeta = Meta.getType(cls);
+	public static function getClass(_cls:Any):Class<Any> return (_cls is Class) ? _cls : Type.getClass(_cls ?? null);
 
-		return clsMeta;
-	}
+	/**
+	 * Only works with instanced classes (example: `new TitleState()`)
+	 */
+	public static function getMetadata(_cls:Any):Dynamic<Array<Dynamic>> return Meta.getType(getClass(_cls));
 
-	public static function getFields(_cls:Any):Dynamic<Dynamic<Array<Dynamic>>>
-	{
-		final cls = Type.getClass(_cls ?? null);
-		final clsFields = Meta.getFields(cls);
+	/**
+	 * Only works with instanced classes (example: `new DebugDisplay()`)
+	 */
+	public static function getFields(_cls:Any):Dynamic<Dynamic<Array<Dynamic>>> return Meta.getFields(getClass(_cls));
 
-		return clsFields;
-	}
-
-	public static function getStatics(_cls:Any):Dynamic<Dynamic<Array<Dynamic>>>
-	{
-		final cls = Type.getClass(_cls ?? null);
-		final clsFields = Meta.getStatics(cls);
-
-		return clsFields;
-	}
+	/**
+	 * Only works with instanced classes (example: `new Main()`)
+	 */
+	public static function getStatics(_cls:Any):Dynamic<Dynamic<Array<Dynamic>>> return Meta.getStatics(getClass(_cls));
 }

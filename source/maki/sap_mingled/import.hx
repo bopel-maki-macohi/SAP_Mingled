@@ -15,6 +15,7 @@ import maki.sap_mingled.states.firsttime.*;
 import maki.sap_mingled.states.menus.*;
 import maki.sap_mingled.states.menus.title.*;
 import maki.sap_mingled.util.*;
+import maki.sap_mingled.util.metadata.*;
 import maki.sap_mingled.util.typedefs.null_basic_type.*;
 #end
 import maki.sap_mingled.util.typedefs.*;
