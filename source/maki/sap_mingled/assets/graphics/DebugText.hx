@@ -1,6 +1,7 @@
 package maki.sap_mingled.assets.graphics;
 
 import flixel.FlxG;
+import flixel.math.FlxMath;
 import flixel.system.FlxAssets;
 import openfl.system.System;
 import openfl.text.TextField;
@@ -29,7 +30,7 @@ class DebugText extends TextField
 		mouseEnabled = false;
 		defaultTextFormat = new TextFormat(FlxAssets.FONT_DEFAULT, 8, color);
 		background = true;
-		backgroundColor = 0xFF808080;
+		backgroundColor = 0x50000000;
 
 		currentFPS = 0;
 		cacheCount = 0;
@@ -49,10 +50,12 @@ class DebugText extends TextField
 
 		if (currentCount != cacheCount)
 		{
+			final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
+
 			var lines = [
 				'FPS: ${currentFPS}',
 				#if SAPM_MEMORY_COUNTER
-				'Memory: ${System.totalMemoryNumber}'
+				'Memory: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB'
 				#end
 			];
 
@@ -68,10 +71,9 @@ class DebugText extends TextField
 				lastText = newText;
 
 				width = textWidth * 1.1;
-				height = textHeight * 1.1;
+				height = textHeight * 1.2;
 
 				if (width > FlxG.width / 4) width = FlxG.width / 4;
-				if (height > FlxG.height / 4) height = FlxG.height / 4;
 			}
 		}
 
