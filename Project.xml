@@ -22,6 +22,7 @@
 	<assets path="assets" exclude="README.md" />
 
 	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
 
 	<haxedef name="FLX_NO_HEALTH" />
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />

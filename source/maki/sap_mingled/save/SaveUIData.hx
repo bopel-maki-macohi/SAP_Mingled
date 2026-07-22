@@ -1,3 +1,6 @@
 package maki.sap_mingled.save;
 
-typedef SaveUIData = {}
+typedef SaveUIData =
+{
+	var grid_skin:String;
+}

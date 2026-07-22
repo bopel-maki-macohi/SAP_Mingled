@@ -83,7 +83,11 @@ class Save
 		data.game.persistance_keys ??= [];
 		data.game.slots ??= [];
 
-		data.ui ??= {};
+		data.ui ??= {
+			grid_skin: null,
+		};
+
+		data.ui.grid_skin ??= 'modern';
 
 		data.controls ??= {};
 	}
@@ -99,11 +103,13 @@ class Save
 	public static function save()
 	{
 		data.game = {
-			persistance_keys: data.game.persistance_keys,
-			slots: data.game.slots,
+			persistance_keys: data?.game?.persistance_keys ?? [],
+			slots: data?.game?.slots ?? [],
 		}
 
-		data.ui = {};
+		data.ui = {
+			grid_skin: data?.ui?.grid_skin ?? 'modern',
+		};
 
 		data.controls = {};
 
