@@ -4,14 +4,12 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxState;
-import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 import flixel.text.FlxText;
 
 @localePrefix('menus.title')
 class TitleState extends FlxState
 {
-	var protoBG:FlxBackdrop;
 	var protoLogo:FlxText;
 
 	var versionText:FlxText;
@@ -46,11 +44,7 @@ class TitleState extends FlxState
 	{
 		super.create();
 
-		protoBG = new FlxBackdrop(get_path_game_menus('grid/${Save.data?.ui?.grid_skin ?? 'modern'}'));
-		protoBG.setGraphicSize(32);
-		add(protoBG);
-
-		protoBG.velocity.set(16, 16);
+		add(new GridBG());
 
 		protoLogo = new FlxText(0, 0, FlxG.width, Constants.GAME_TITLE, 32);
 		add(protoLogo);

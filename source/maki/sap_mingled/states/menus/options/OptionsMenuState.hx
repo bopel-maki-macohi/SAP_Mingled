@@ -6,6 +6,13 @@ import flixel.FlxState;
 @localePrefix('menus.options')
 class OptionsMenuState extends FlxState
 {
+	override function create()
+	{
+		super.create();
+
+		add(new GridBG());
+	}
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);

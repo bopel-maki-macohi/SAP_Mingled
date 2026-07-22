@@ -36,6 +36,8 @@ class PlayMenuState extends FlxState
 	{
 		super.create();
 
+		add(new GridBG());
+		
 		icons = new FlxTypedSpriteContainer<LevelIcon>();
 		iconsCam = new FlxCamera();
 		iconsCamFollow = new FlxObject(0,FlxG.height / 8);
