@@ -39,9 +39,13 @@ class TitleState extends SAPState
 
 	var selection:Int = 0;
 
+	public static var rememberedSelection = 0;
+
 	override function create()
 	{
 		super.create();
+
+		selection = rememberedSelection;
 
 		add(new GridBG());
 
@@ -107,6 +111,9 @@ class TitleState extends SAPState
 			outroDelay = SAPAudioManager.playSound({
 				path: get_path_game_sounds('select')
 			})?.length / 2000 ?? 0;
+
+			rememberedSelection = selection;
+
 			for (button in buttons) button.select(selection);
 		}
 	}
