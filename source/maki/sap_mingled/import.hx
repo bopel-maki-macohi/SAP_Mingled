@@ -1,6 +1,7 @@
 #if !macro
 import maki.sap_mingled.assets.*;
 import maki.sap_mingled.assets.AssetManager.*;
+import maki.sap_mingled.assets.graphics.*;
 import maki.sap_mingled.data.*;
 import maki.sap_mingled.data.params.*;
 import maki.sap_mingled.save.*;

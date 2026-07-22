@@ -15,9 +15,14 @@ class Main extends FlxGame
 
 	public static var mouse_enabled:Bool = false;
 
+	public static var debug_text:DebugText;
+
 	override function create(_:Event)
 	{
 		super.create(_);
+
+		debug_text = new DebugText(2, 2, 0xFFFFFFFF);
+		addChild(debug_text);
 	}
 
 	override function step()
