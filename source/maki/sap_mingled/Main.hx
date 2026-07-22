@@ -2,6 +2,7 @@ package maki.sap_mingled;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import lime.app.Application;
 import openfl.events.Event;
 
 class Main extends FlxGame
@@ -29,6 +30,8 @@ class Main extends FlxGame
 
 		// trace(LanguageManager.getClassLocalePrefix(this, false));
 		// trace(LanguageManager.getClassLocalePrefix(DebugDisplay, false));
+
+		Application.current.window.title = Constants.GAME_TITLE;
 	}
 
 	override function step()

@@ -52,7 +52,7 @@ class TitleState extends FlxState
 
 		protoBG.velocity.set(16, 16);
 
-		protoLogo = new FlxText(0, 0, FlxG.width, getLanguageKey('${getClassLocalePrefix(this)}.title'), 32);
+		protoLogo = new FlxText(0, 0, FlxG.width, Constants.GAME_TITLE, 32);
 		add(protoLogo);
 		protoLogo.alignment = CENTER;
 		protoLogo.screenCenter();
