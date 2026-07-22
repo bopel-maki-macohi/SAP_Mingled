@@ -58,8 +58,9 @@ class PlayMenuState extends SAPState
 			icons.add(icon);
 		}
 
-		selectionText = new FlxText(0, 0, 0, '2parkeR', 32);
+		selectionText = new FlxText(0, 0, FlxG.width, '2parkeR', 32);
 		add(selectionText);
+		selectionText.alignment = CENTER;
 		selectionText.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
 	}
 
