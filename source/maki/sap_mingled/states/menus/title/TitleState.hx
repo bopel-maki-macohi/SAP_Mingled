@@ -90,8 +90,9 @@ class TitleState extends FlxState
 
 		versionText = new FlxText(0, 0, FlxG.width, Constants.GAME_VERSION, 16);
 		add(versionText);
+		versionText.x = 4;
 		versionText.y = FlxG.height - versionText.height;
-		versionText.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
+		versionText.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 2);
 	}
 
 	override function update(elapsed:Float)
