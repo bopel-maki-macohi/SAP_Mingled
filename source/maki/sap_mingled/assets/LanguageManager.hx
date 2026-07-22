@@ -7,13 +7,13 @@ class LanguageManager
 {
 	public static var locale:LangFile = null;
 
-	@:allow(maki.sap_mingled.Main)
+	@:allow(maki.sap_mingled.game.MainGame)
 	static function init()
 	{
 		loadLocale('eng-US');
 	}
 
-	@:allow(maki.sap_mingled.Main)
+	@:allow(maki.sap_mingled.game.MainGame)
 	static function loadLocale(_locale:String)
 	{
 		try

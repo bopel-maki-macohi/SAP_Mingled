@@ -4,10 +4,9 @@ import flixel.util.typeLimit.NextState.InitialState;
 
 class StartingState
 {
-	public static function get():InitialState
+	public static function getPrimary():InitialState
 	{
 		#if SAPM_START_INTRO
-
 		/**
 		 * 	Save this for when theres
 		 * 	something worth warning people about.
@@ -29,7 +28,6 @@ class StartingState
 
 			return IntroState;
 		}
-
 		#end
 
 		#if SAPM_START_PLAYMENU
@@ -37,5 +35,10 @@ class StartingState
 		#end
 
 		return TitleState;
+	}
+
+	public static function getSecondary():InitialState
+	{
+		return null;
 	}
 }
