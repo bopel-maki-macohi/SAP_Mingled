@@ -1,5 +1,6 @@
 package maki.sap_mingled.states.menus.options;
 
+import flixel.FlxG;
 import flixel.FlxState;
 
 @localePrefix('menus.options')
