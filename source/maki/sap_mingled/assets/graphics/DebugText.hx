@@ -7,6 +7,7 @@ import openfl.system.System;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
+@localePrefix('ui.debugtext')
 class DebugText extends TextField
 {
 	/**
@@ -53,9 +54,9 @@ class DebugText extends TextField
 			final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
 
 			var lines = [
-				'FPS: ${currentFPS}',
+				'${getLanguageKey('${getClassLocalePrefix(this)}.fps')}: ${currentFPS}',
 				#if SAPM_MEMORY_COUNTER
-				'Memory: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB'
+				'${getLanguageKey('${getClassLocalePrefix(this)}.memory')}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB'
 				#end
 			];
 

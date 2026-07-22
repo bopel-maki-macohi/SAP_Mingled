@@ -4,6 +4,8 @@
 		"author": "Maki"
 	},
 	"keys": {
+		"ui.debugtext.fps": "FPS",
+		"ui.debugtext.memory": "Memory",
 		"menus.title.title": "Sinco and Portilizen : Mingled",
 		"menus.title.option.play": "Play",
 		"menus.title.option.options": "Options",
