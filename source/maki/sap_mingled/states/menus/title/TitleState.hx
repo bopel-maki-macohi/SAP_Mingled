@@ -20,7 +20,11 @@ class TitleState extends FlxState
 	var buttonsCam:FlxCamera;
 	var buttonsCamFollow:FlxObject;
 
-	var order = ['Play', 'Options', 'Credits',];
+	var order = [
+		'Play',
+		'Options',
+		// 'Credits',
+	];
 	var entries:Map<String, FuncVoid> = [
 		'Play' => function()
 		{
