@@ -5,7 +5,7 @@ import flixel.input.keyboard.FlxKey;
 
 class Controls
 {
-	public static function withControls(control:String, method:Array<FlxKey>->Bool):Bool
+	public static function withControls(control:String, method:FuncAInBoolOut<Array<FlxKey>>):Bool
 	{
 		if (method == null)
 		{
