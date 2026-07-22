@@ -45,6 +45,6 @@ class IntroState extends SAPState
 
 	function onCutsceneEnd()
 	{
-		FlxG.switchState(StartingState.get());
+		FlxG.switchState(StartingState.get().toNextState());
 	}
 }
