@@ -60,6 +60,7 @@ class PlayMenuState extends SAPState
 
 		selectionText = new FlxText(0, 0, 0, '2parkeR', 32);
 		add(selectionText);
+		selectionText.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
 	}
 
 	override function update(elapsed:Float)
