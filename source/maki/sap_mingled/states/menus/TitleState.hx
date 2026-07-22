@@ -22,5 +22,7 @@ class TitleState extends FlxState
 		protoLogo = new FlxText(0, 0, 0, Constants.GAME_TITLE, 16);
 		add(protoLogo);
 		protoLogo.screenCenter();
+
+		protoLogo.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 2);
 	}
 }
