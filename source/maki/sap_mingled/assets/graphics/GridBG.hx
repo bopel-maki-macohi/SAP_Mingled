@@ -7,9 +7,14 @@ class GridBG extends FlxBackdrop
 {
 	public static var POSITION:FlxPoint;
 
+	public static var instance:GridBG;
+
 	override public function new()
 	{
 		super();
+
+		instance = null;
+		instance = this;
 
 		if (POSITION == null) POSITION = new FlxPoint();
 		else setPosition(POSITION.x, POSITION.y);
