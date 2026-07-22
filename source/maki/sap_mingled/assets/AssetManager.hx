@@ -10,6 +10,8 @@ class AssetManager
 
 	public static function get_path_game_menus(path:String, ?ext:String = 'png'):String return get_path_game('menus/$path', ext);
 	
+	public static function get_path_game_menus_play(path:String, ?ext:String = 'png'):String return get_path_game('play/$path', ext);
+	
 	public static function get_path_game_cutscene(path:String, ?ext:String = 'png'):String return get_path_game('cutscene/$path', ext);
 	
 	public static function get_path_data(path:String, ?ext:String = 'json'):String return get('data/$path', ext);

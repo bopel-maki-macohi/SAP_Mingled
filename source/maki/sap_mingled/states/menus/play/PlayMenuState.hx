@@ -13,6 +13,8 @@ class PlayMenuState extends FlxState
 		super.create();
 
 		testIcon = new LevelIcon();
+		add(testIcon);
+		testIcon.screenCenter();
 	}
 
 	override function update(elapsed:Float)

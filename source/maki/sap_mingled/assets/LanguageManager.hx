@@ -7,12 +7,14 @@ class LanguageManager
 {
 	public static var locale:LangFile = null;
 
-	public static function init()
+	@:allow(maki.sap_mingled.Main)
+	static function init()
 	{
 		loadLocale('eng-US');
 	}
 
-	public static function loadLocale(_locale:String)
+	@:allow(maki.sap_mingled.Main)
+	static function loadLocale(_locale:String)
 	{
 		try
 		{

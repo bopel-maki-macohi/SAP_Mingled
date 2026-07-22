@@ -1,6 +1,13 @@
 package maki.sap_mingled.states.menus.play;
 
-class LevelIcon
+import flixel.FlxSprite;
+
+class LevelIcon extends FlxSprite
 {
-	public function new() {}
+	public function new(icon = 'unknown', x = 0.0, y = 0.0)
+	{
+		super(x, y);
+
+		loadGraphic(get_path_game_menus_play('levelIcons/$icon'));
+	}
 }
