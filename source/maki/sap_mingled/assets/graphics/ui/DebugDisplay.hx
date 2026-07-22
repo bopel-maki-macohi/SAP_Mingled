@@ -49,7 +49,7 @@ class DebugDisplay extends TextField
 		var currentCount = times.length;
 		currentFPS = Std.int((currentCount + cacheCount) / 2);
 
-		visible = Save.data.ui.debug_display ?? false;
+		visible = !FlxG.debugger.visible && (Save.data.ui.debug_display ?? false);
 		if (currentCount != cacheCount)
 		{
 			if (visible)

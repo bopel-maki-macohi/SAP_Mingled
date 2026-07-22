@@ -37,8 +37,6 @@ class Main extends FlxGame
 	override function step()
 	{
 		super.step();
-
-		debugDisplay.visible = !FlxG.debugger.visible;
 	}
 
 	override function update()
@@ -46,6 +44,7 @@ class Main extends FlxGame
 		super.update();
 
 		if (FlxG.keys.justPressed.F6 && FlxG.save.isBound) Save.data.ui.debug_display = !Save.data.ui.debug_display;
+		if (FlxG.keys.justPressed.F7) mouseVisible = !mouseVisible;
 
 		FlxG.mouse.visible = mouseVisible;
 	}
