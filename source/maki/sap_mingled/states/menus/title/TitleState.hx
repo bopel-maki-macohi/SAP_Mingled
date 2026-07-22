@@ -45,7 +45,7 @@ class TitleState extends FlxState
 
 		protoBG.velocity.set(16, 16);
 
-		protoLogo = new FlxText(0, 0, 0, Constants.GAME_TITLE, 32);
+		protoLogo = new FlxText(0, 0, 0, LanguageManager.localeKey('${Main.stateCode}.title'), 32);
 		add(protoLogo);
 		protoLogo.screenCenter();
 
@@ -62,7 +62,7 @@ class TitleState extends FlxState
 			if (entry == null) continue;
 			if (entry?.trim()?.length < 1) continue;
 
-			var entry_button = new TitleButton(entry, i, entries.get(entry));
+			var entry_button = new TitleButton(LanguageManager.localeKey('${Main.stateCode}.option.${entry.toLowerCase()}'), i, entries.get(entry));
 			buttons.add(entry_button);
 
 			i++;

@@ -1,1 +1,12 @@
-{}
+{
+	"info": {
+		"name": "English (US)",
+		"author": "Maki"
+	},
+	"keys": {
+		"menus.title.title": "Sinco and Portilizen : Mingled",
+		"menus.title.option.play": "Play",
+		"menus.title.option.options": "Options",
+		"menus.title.option.credits": "Credits"
+	}
+}
