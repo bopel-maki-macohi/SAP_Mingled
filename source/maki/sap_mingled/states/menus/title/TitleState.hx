@@ -49,15 +49,16 @@ class TitleState extends SAPState
 
 		add(new GridBG());
 
-		protoLogo = new FlxText(0, 0, FlxG.width, Constants.GAME_TITLE, 32);
+		protoLogo = new FlxText(0, 0, 0, Constants.GAME_TITLE, 32);
 		add(protoLogo);
 		protoLogo.alignment = CENTER;
 		protoLogo.screenCenter();
 
 		protoLogo.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
+		protoLogo.fieldWidth = protoLogo.width + 15;
 
 		protoLogo.y -= protoLogo.height * 4;
-
+		
 		buttons = new FlxTypedSpriteContainer<MenuButton>();
 		add(buttons);
 
@@ -85,7 +86,7 @@ class TitleState extends SAPState
 		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
 		buttonsCam.focusOn(buttonsCamFollow.getPosition());
 
-		versionText = new FlxText(0, 0, FlxG.width, Constants.GAME_VERSION, 16);
+		versionText = new FlxText(0, 0, FlxG.width / 8, Constants.GAME_VERSION, 16);
 		add(versionText);
 		versionText.x = 4;
 		versionText.y = FlxG.height - versionText.height;
