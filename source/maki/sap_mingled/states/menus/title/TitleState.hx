@@ -52,8 +52,9 @@ class TitleState extends FlxState
 
 		protoBG.velocity.set(16, 16);
 
-		protoLogo = new FlxText(0, 0, 0, getLanguageKey('${getClassLocalePrefix(this)}.title'), 32);
+		protoLogo = new FlxText(0, 0, FlxG.width, getLanguageKey('${getClassLocalePrefix(this)}.title'), 32);
 		add(protoLogo);
+		protoLogo.alignment = CENTER;
 		protoLogo.screenCenter();
 
 		protoLogo.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
@@ -87,9 +88,10 @@ class TitleState extends FlxState
 		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
 		buttonsCam.focusOn(buttonsCamFollow.getPosition());
 
-		versionText = new FlxText(0, 0, 0, Constants.GAME_VERSION, 16);
+		versionText = new FlxText(0, 0, FlxG.width, Constants.GAME_VERSION, 16);
 		add(versionText);
 		versionText.y = FlxG.height - versionText.height;
+		versionText.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 4);
 	}
 
 	override function update(elapsed:Float)
