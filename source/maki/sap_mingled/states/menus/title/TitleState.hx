@@ -16,7 +16,7 @@ class TitleState extends FlxState
 
 	var versionText:FlxText;
 
-	var buttons:FlxTypedSpriteContainer<TitleButton>;
+	var buttons:FlxTypedSpriteContainer<MenuButton>;
 	var buttonsCam:FlxCamera;
 	var buttonsCamFollow:FlxObject;
 
@@ -61,7 +61,7 @@ class TitleState extends FlxState
 
 		protoLogo.y -= protoLogo.height * 4;
 
-		buttons = new FlxTypedSpriteContainer<TitleButton>();
+		buttons = new FlxTypedSpriteContainer<MenuButton>();
 		add(buttons);
 
 		var i = 0;
@@ -70,7 +70,7 @@ class TitleState extends FlxState
 			if (entry == null) continue;
 			if (entry?.trim()?.length < 1) continue;
 
-			var entry_button = new TitleButton(getLanguageKey('${getClassLocalePrefix(this)}.option.${entry.toLowerCase()}'), i, entries.get(entry));
+			var entry_button = new MenuButton(getLanguageKey('${getClassLocalePrefix(this)}.option.${entry.toLowerCase()}'), i, entries.get(entry));
 			buttons.add(entry_button);
 
 			i++;

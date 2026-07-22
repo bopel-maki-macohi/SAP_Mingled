@@ -13,6 +13,8 @@ import maki.sap_mingled.save.*;
 import maki.sap_mingled.states.*;
 import maki.sap_mingled.states.firsttime.*;
 import maki.sap_mingled.states.menus.*;
+import maki.sap_mingled.states.menus.options.*;
+import maki.sap_mingled.states.menus.play.*;
 import maki.sap_mingled.states.menus.title.*;
 import maki.sap_mingled.util.*;
 import maki.sap_mingled.util.metadata.*;

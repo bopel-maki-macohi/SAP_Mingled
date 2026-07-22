@@ -1,9 +1,9 @@
-package maki.sap_mingled.states.menus.title;
+package maki.sap_mingled.assets.graphics.ui;
 
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 
-class TitleButton extends FlxText
+class MenuButton extends FlxText
 {
 	var arrow:SelectionArrow;
 
