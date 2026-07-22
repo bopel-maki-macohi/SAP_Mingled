@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://lime.openfl.org/project/1.0.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://lime.openfl.org/project/1.0.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
-
-	<!-- _________________________ Application Settings _________________________ -->
 
 	<app title="Sinco and Portilizen : Mingled" file="Mingled" company="Maki" />
 	<app main="maki.sap_mingled.Main" />
@@ -32,5 +31,15 @@
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 	<haxedef name="message.reporting" value="pretty" />
+
+	<!-- Backwards compatability -->
+	<define name="SAPM_SAVE_CLEAR" if="SAVE_CLEAR" />
+
+	<define name="SAPM_MEMORY_COUNTER" if="neko" />
+	<define name="SAPM_MEMORY_COUNTER" if="cpp" />
+	<define name="SAPM_MEMORY_COUNTER" if="hl" />
+	<section if="html5">
+		<define name="SAPM_MEMORY_COUNTER" if="js" />
+	</section>
 
 </project>

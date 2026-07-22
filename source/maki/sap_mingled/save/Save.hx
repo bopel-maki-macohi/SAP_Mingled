@@ -24,7 +24,7 @@ class Save
 
 		final raw_data = FlxG.save.data.sap;
 
-		#if SAVE_CLEAR
+		#if SAPM_SAVE_CLEAR
 		clear();
 		#else
 		load();

@@ -2,7 +2,7 @@ package maki.sap_mingled.assets.graphics;
 
 import flixel.FlxG;
 import flixel.system.FlxAssets;
-import openfl.display.Sprite;
+import openfl.system.System;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
@@ -51,10 +51,9 @@ class DebugText extends TextField
 		{
 			var lines = [
 				'FPS: ${currentFPS}',
-				'Lorem Ipsum Dolor sit amet',
-				'543216789999000',
-				'aaaaaaaaaaaaaaaaaaaaaaa',
-				'THE FITNESS GRAM PACER TEST IS A MULTISTAGE EROBIC CAPACITY TEST THAT PROGRESSIVELY GETS MORE DIFFICULT AS IT CONTINUES'
+				#if SAPM_MEMORY_COUNTER
+				'Memory: ${System.totalMemoryNumber}'
+				#end
 			];
 
 			var longest = -1;
