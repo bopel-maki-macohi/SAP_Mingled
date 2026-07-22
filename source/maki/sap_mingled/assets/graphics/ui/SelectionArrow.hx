@@ -14,7 +14,7 @@ class SelectionArrow extends FlxSprite
 		return selected = _selected;
 	}
 
-	override public function new(graphic_size = 16, x = 0.0, y = 0.0)
+	override public function new(graphicSize = 16, x = 0.0, y = 0.0)
 	{
 		super(x, y);
 
@@ -22,7 +22,7 @@ class SelectionArrow extends FlxSprite
 		animation.add('selected', [0]);
 		animation.add('unselected', [1]);
 
-		setGraphicSize(graphic_size);
+		setGraphicSize(graphicSize);
 		updateHitbox();
 
 		selected = false;
