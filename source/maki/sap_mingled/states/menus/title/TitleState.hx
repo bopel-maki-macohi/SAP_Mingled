@@ -1,4 +1,4 @@
-package maki.sap_mingled.states.menus;
+package maki.sap_mingled.states.menus.title;
 
 import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
@@ -8,6 +8,10 @@ class TitleState extends FlxState
 {
 	var protoBG:FlxBackdrop;
 	var protoLogo:FlxText;
+
+	var playButton:TitleButton;
+
+	var selection:Int = 0;
 
 	override function create()
 	{
@@ -24,5 +28,18 @@ class TitleState extends FlxState
 		protoLogo.screenCenter();
 
 		protoLogo.setBorderStyle(OUTLINE_CARDINAL, 0xFF000000, 2);
+
+		protoLogo.y -= protoLogo.height * 2;
+
+		playButton = new TitleButton('Play', 0);
+		add(playButton);
+		playButton.screenCenter();
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		playButton.updateSelection(selection);
 	}
 }
