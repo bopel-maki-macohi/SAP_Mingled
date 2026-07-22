@@ -4,10 +4,12 @@ import flixel.FlxSprite;
 
 class LevelIcon extends FlxSprite
 {
-	public function new(icon = 'unknown', x = 0.0, y = 0.0)
+	public function new(icon = 'unknown', ID:Int)
 	{
 		super(x, y);
 
-		loadGraphic(get_path_game_menus_play('levelIcons/$icon'));
+		loadGraphic(get_path_game_menus_play('levelIcons/${icon ?? 'unknown'}'));
+
+		this.ID = ID;
 	}
 }

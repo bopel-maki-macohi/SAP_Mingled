@@ -5,7 +5,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 6;
+	public static final SAVE_VERSION:NullInt = 7;
 
 	public static var data(get, set):SaveData;
 
@@ -94,6 +94,10 @@ class Save
 			ui_up_alt: null,
 			ui_down: null,
 			ui_down_alt: null,
+			ui_left: null,
+			ui_left_alt: null,
+			ui_right: null,
+			ui_right_alt: null,
 			ui_accept: null,
 			ui_accept_alt: null,
 			ui_back: null,
@@ -105,6 +109,12 @@ class Save
 
 		data.controls.ui_down ??= 'DOWN';
 		data.controls.ui_down_alt ??= 'S';
+
+		data.controls.ui_left ??= 'LEFT';
+		data.controls.ui_left_alt ??= 'A';
+
+		data.controls.ui_right ??= 'RIGHT';
+		data.controls.ui_right_alt ??= 'D';
 
 		data.controls.ui_accept ??= 'ENTER';
 		data.controls.ui_accept_alt ??= '';
@@ -137,6 +147,10 @@ class Save
 			ui_up_alt: data.controls.ui_up_alt,
 			ui_down: data.controls.ui_down,
 			ui_down_alt: data.controls.ui_down_alt,
+			ui_left: data.controls.ui_left,
+			ui_left_alt: data.controls.ui_left_alt,
+			ui_right: data.controls.ui_right,
+			ui_right_alt: data.controls.ui_right_alt,
 			ui_accept: data.controls.ui_accept,
 			ui_accept_alt: data.controls.ui_accept_alt,
 			ui_back: data.controls.ui_back,

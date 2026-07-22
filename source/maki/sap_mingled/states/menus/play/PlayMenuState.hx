@@ -14,6 +14,21 @@ class PlayMenuState extends FlxState
 	var iconsCam:FlxCamera;
 	var iconsCamFollow:FlxObject;
 
+	var order = [
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+	];
+
+	var selection = 0;
+
 	override function create()
 	{
 		super.create();
@@ -29,6 +44,15 @@ class PlayMenuState extends FlxState
 
 		iconsCam.follow(iconsCamFollow, LOCKON, 0.04);
 		iconsCam.focusOn(iconsCamFollow.getPosition());
+
+		icons.cameras = [iconsCam];
+		add(icons);
+
+		for (i => entry in order)
+		{
+			var icon = new LevelIcon(entry, i);
+			icons.add(icon);
+		}
 	}
 
 	override function update(elapsed:Float)
@@ -36,5 +60,28 @@ class PlayMenuState extends FlxState
 		super.update(elapsed);
 
 		if (Controls.justPressed('ui_back')) FlxG.switchState(() -> new TitleState());
+
+		for (icon in icons)
+		{
+			icon.x = (icon.ID * icon.width);
+
+			icon.color = FlxColor.WHITE;
+			if (selection == icon.ID)
+			{
+				iconsCamFollow.x = icon.x;
+				icon.color = FlxColor.YELLOW;
+			}
+		}
+
+		if (Controls.justPressed('ui_left')) changeSelection(-1);
+		if (Controls.justPressed('ui_right')) changeSelection(1);
+	}
+
+	function changeSelection(amount:Int)
+	{
+		selection += amount;
+
+		if (selection < 0) selection = icons.length - 1;
+		if (selection > icons.length - 1) selection = 0;
 	}
 }
