@@ -119,11 +119,4 @@ class TitleState extends FlxState
 		if (selection < 0) selection = buttons.length - 1;
 		if (selection > buttons.length - 1) selection = 0;
 	}
-
-	override function destroy()
-	{
-		FlxG.cameras.remove(buttonsCam);
-
-		super.destroy();
-	}
 }

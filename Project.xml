@@ -45,7 +45,7 @@
 		<define name="SAPM_MEMORY_COUNTER" if="js" />
 	</section>
 
-	<!-- <define name="SAPM_START_NO_INTRO" if="" /> -->
+	<define name="SAPM_START_NO_INTRO" if="SAPM_START_PLAYMENU" />
 	<define name="SAPM_START_INTRO" unless="SAPM_START_NO_INTRO"/>
 
 </project>

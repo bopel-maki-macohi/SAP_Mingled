@@ -32,6 +32,10 @@ class StartingState
 
 		#end
 
+		#if SAPM_START_PLAYMENU
+		return PlayMenuState;
+		#end
+
 		return TitleState;
 	}
 }
