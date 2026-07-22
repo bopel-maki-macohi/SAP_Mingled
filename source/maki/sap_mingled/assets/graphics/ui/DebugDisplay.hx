@@ -50,33 +50,40 @@ class DebugDisplay extends TextField
 		currentFPS = Std.int((currentCount + cacheCount) / 2);
 
 		visible = Save.data.ui.debug_display ?? false;
-		if (visible && currentCount != cacheCount)
+		if (currentCount != cacheCount)
 		{
-			final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
-
-			var lines = [
-				'${getLanguageKey('${getClassLocalePrefix(this)}.fps')}: ${currentFPS}',
-				#if SAPM_MEMORY_COUNTER
-				'${getLanguageKey('${getClassLocalePrefix(this)}.memory')}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB'
-				#end
-			];
-
-			var longest = -1;
-
-			for (i => line in lines) if (line.length > lines[longest]?.length ?? 0) longest = i;
-
-			var newText = lines.join('\n');
-
-			if (newText != lastText)
+			if (visible)
 			{
-				text = newText;
-				lastText = newText;
+				final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
 
-				width = textWidth * 1.1;
-				height = textHeight * 1.2;
+				var lines = [
+					'${getLanguageKey('${getClassLocalePrefix(this)}.fps')}: ${currentFPS}',
+					#if SAPM_MEMORY_COUNTER
+					'${getLanguageKey('${getClassLocalePrefix(this)}.memory')}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB'
+					#end
+				];
 
-				if (width > FlxG.width / 4) width = FlxG.width / 4;
+				var longest = -1;
+
+				for (i => line in lines) if (line.length > lines[longest]?.length ?? 0) longest = i;
+
+				var newText = lines.join('\n');
+
+				if (newText != lastText)
+				{
+					text = newText;
+					lastText = newText;
+				}
 			}
+			else
+			{
+				text = '';
+			}
+
+			width = textWidth * 1.1;
+			height = textHeight * 1.2;
+
+			if (width > FlxG.width / 4) width = FlxG.width / 4;
 		}
 
 		cacheCount = currentCount;
