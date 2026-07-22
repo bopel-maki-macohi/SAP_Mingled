@@ -8,6 +8,13 @@ class Constants
 
 	static function get_GAME_TITLE():String return Application?.current?.meta?.get('name') ?? 'N / A';
 
+	/**
+	 * IDEA:
+	 * 
+	 * Version comes from `Main` via the metadata shit.
+	 * 
+	 * What to have the version format though...
+	 */
 	public static var GAME_VERSION(get, never):String;
 
 	static function get_GAME_VERSION():String return Application?.current?.meta?.get('version') ?? 'N / A';
