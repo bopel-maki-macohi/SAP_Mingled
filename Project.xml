@@ -33,6 +33,8 @@
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 	<haxedef name="message.reporting" value="pretty" />
 
+	<haxeflag name="--dce" value="full" unless="debug" />
+
 	<!-- Backwards compatability -->
 	<define name="SAPM_SAVE_CLEAR" if="SAVE_CLEAR" />
 
