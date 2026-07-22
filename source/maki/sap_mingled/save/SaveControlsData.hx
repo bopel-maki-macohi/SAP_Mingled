@@ -10,4 +10,7 @@ typedef SaveControlsData =
 
 	var ui_accept:String;
 	var ui_accept_alt:String;
+
+	var ui_back:String;
+	var ui_back_alt:String;
 }

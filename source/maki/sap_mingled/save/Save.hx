@@ -5,7 +5,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 5;
+	public static final SAVE_VERSION:NullInt = 6;
 
 	public static var data(get, set):SaveData;
 
@@ -96,6 +96,8 @@ class Save
 			ui_down_alt: null,
 			ui_accept: null,
 			ui_accept_alt: null,
+			ui_back: null,
+			ui_back_alt: null,
 		};
 
 		data.controls.ui_up ??= 'UP';
@@ -106,6 +108,9 @@ class Save
 
 		data.controls.ui_accept ??= 'ENTER';
 		data.controls.ui_accept_alt ??= '';
+
+		data.controls.ui_back ??= 'ESCAPE';
+		data.controls.ui_back_alt ??= '';
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)
@@ -134,6 +139,8 @@ class Save
 			ui_down_alt: data.controls.ui_down_alt,
 			ui_accept: data.controls.ui_accept,
 			ui_accept_alt: data.controls.ui_accept_alt,
+			ui_back: data.controls.ui_back,
+			ui_back_alt: data.controls.ui_back_alt,
 		};
 
 		data = {

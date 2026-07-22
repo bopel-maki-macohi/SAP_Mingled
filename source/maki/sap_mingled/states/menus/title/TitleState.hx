@@ -25,20 +25,7 @@ class TitleState extends FlxState
 		'Options',
 		// 'Credits',
 	];
-	var entries:Map<String, FuncVoid> = [
-		'Play' => function()
-		{
-			trace('Play');
-		},
-		'Options' => function()
-		{
-			trace('Options');
-		},
-		'Credits' => function()
-		{
-			trace('Credits');
-		},
-	];
+	var entries:Map<String, FuncVoid> = ['Play' => onPlay, 'Options' => onOptions, 'Credits' => onCredits,];
 
 	var selection:Int = 0;
 
@@ -118,5 +105,20 @@ class TitleState extends FlxState
 
 		if (selection < 0) selection = buttons.length - 1;
 		if (selection > buttons.length - 1) selection = 0;
+	}
+
+	function onPlay()
+	{
+		trace('Play');
+	}
+
+	function onOptions()
+	{
+		trace('Options');
+	}
+
+	function onCredits()
+	{
+		trace('Credits');
 	}
 }

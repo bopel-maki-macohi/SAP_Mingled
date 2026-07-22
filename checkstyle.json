@@ -3,9 +3,7 @@
     "checks": [
         {
             "type": "Return",
-            "props": {
-                "enforceReturnTypeForAnonymous": true
-            }
+            "props": {}
         },
         {
             "type": "UnusedImport",
