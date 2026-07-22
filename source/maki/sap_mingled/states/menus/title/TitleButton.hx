@@ -56,6 +56,11 @@ class TitleButton extends FlxText
 	public function select(currentSelected:Int)
 	{
 		if (onSelect == null) return;
-		if (currentSelected == ID) onSelect();
+		if (currentSelected == ID)
+		{
+			onSelect();
+
+			arrow?.animation.play('select');
+		}
 	}
 }
