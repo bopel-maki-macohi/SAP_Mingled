@@ -26,7 +26,7 @@ class LanguageManager
 		}
 	}
 
-	public static function localeKey(key:String):String
+	public static function getLanguageKey(key:String, ?defaultStr:String):String
 	{
 		if (locale != null)
 		{
@@ -35,6 +35,48 @@ class LanguageManager
 			if (field != null) return field;
 		}
 
-		return '[$key]';
+		return defaultStr ?? '[$key]';
+	}
+
+	public static function getClassLocalePrefix(_cls:Any, includeClassName = false):String
+	{
+		final cls = Type.getClass(_cls ?? null);
+		final clsMeta = Meta.getType(cls);
+
+		final meta_localePrefix:Array<Dynamic> = clsMeta.localePrefix;
+
+		if (meta_localePrefix != null && meta_localePrefix?.length > 0)
+		{
+			var cur = null;
+
+			for (prefix in meta_localePrefix)
+			{
+				if (prefix == null) continue;
+
+				cur = '$prefix'.toLowerCase();
+			}
+
+			if (cur != null) return cur;
+		}
+
+		final classPackage = Type.getClassName(cls);
+		final className = classPackage.split('.')[classPackage.split('.').length - 1];
+
+		// trace(classPackage);
+		// trace(className);
+
+		var stateCode = classPackage?.toLowerCase();
+
+		if (stateCode != null)
+		{
+			if (!includeClassName)
+			{
+				stateCode = stateCode.substr(0, stateCode.length - className.length);
+
+				if (stateCode.length == 0) stateCode = className.toLowerCase();
+			}
+		}
+
+		return stateCode ?? 'class';
 	}
 }
