@@ -7,4 +7,8 @@ class Constants
 	public static var GAME_TITLE(get, never):String;
 
 	static function get_GAME_TITLE():String return Application?.current?.meta?.get('name') ?? 'N / A';
+
+	public static var GAME_VERSION(get, never):String;
+
+	static function get_GAME_VERSION():String return Application?.current?.meta?.get('version') ?? 'N / A';
 }

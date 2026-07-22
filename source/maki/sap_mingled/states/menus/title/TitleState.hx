@@ -14,6 +14,8 @@ class TitleState extends FlxState
 	var protoBG:FlxBackdrop;
 	var protoLogo:FlxText;
 
+	var versionText:FlxText;
+
 	var buttons:FlxTypedSpriteContainer<TitleButton>;
 	var buttonsCam:FlxCamera;
 	var buttonsCamFollow:FlxObject;
@@ -80,6 +82,10 @@ class TitleState extends FlxState
 
 		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
 		buttonsCam.focusOn(buttonsCamFollow.getPosition());
+
+		versionText = new FlxText(0, 0, 0, Constants.GAME_VERSION, 8);
+		add(versionText);
+		versionText.y = FlxG.height - versionText.height;
 	}
 
 	override function update(elapsed:Float)
