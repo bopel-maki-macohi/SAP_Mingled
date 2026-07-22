@@ -83,7 +83,7 @@ class TitleState extends FlxState
 		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
 		buttonsCam.focusOn(buttonsCamFollow.getPosition());
 
-		versionText = new FlxText(0, 0, 0, Constants.GAME_VERSION, 8);
+		versionText = new FlxText(0, 0, 0, Constants.GAME_VERSION, 16);
 		add(versionText);
 		versionText.y = FlxG.height - versionText.height;
 	}
