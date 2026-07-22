@@ -1,0 +1,2 @@
+07-21-2026 : Stitch game texture together and just have a big atlas loaded for the textures instead of individual (Like minecraft)
+07-22-2026 : Custom FlxText class to export the text texture and when the texts are needed again they look for that texture
