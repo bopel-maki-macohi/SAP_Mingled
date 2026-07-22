@@ -41,9 +41,8 @@ class LanguageManager
 	public static function getClassLocalePrefix(_cls:Any, includeClassName = false):String
 	{
 		final cls = Type.getClass(_cls ?? null);
-		final clsMeta = Meta.getType(cls);
 
-		final meta_localePrefix:Array<Dynamic> = clsMeta.localePrefix;
+		final meta_localePrefix:Array<Dynamic> = ClassUtil.getMetadata(cls)?.localePrefix;
 
 		if (meta_localePrefix != null && meta_localePrefix?.length > 0)
 		{
