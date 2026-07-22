@@ -45,6 +45,8 @@ class Main extends FlxGame
 	{
 		super.update();
 
+		if (FlxG.keys.justPressed.F6 && FlxG.save.isBound) Save.data.ui.debug_display = !Save.data.ui.debug_display;
+
 		FlxG.mouse.visible = mouseVisible;
 	}
 

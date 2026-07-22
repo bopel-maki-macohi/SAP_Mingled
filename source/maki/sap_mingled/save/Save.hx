@@ -5,7 +5,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 7;
+	public static final SAVE_VERSION:NullInt = 8;
 
 	public static var data(get, set):SaveData;
 
@@ -85,9 +85,11 @@ class Save
 
 		data.ui ??= {
 			grid_skin: null,
+			debug_display: null,
 		};
 
 		data.ui.grid_skin ??= 'modern';
+		data.ui.debug_display ??= #if debug true #else false #end;
 
 		data.controls ??= {
 			ui_up: null,
@@ -139,7 +141,8 @@ class Save
 		}
 
 		data.ui = {
-			grid_skin: data?.ui?.grid_skin ?? 'modern',
+			grid_skin: data.ui.grid_skin,
+			debug_display: data.ui.debug_display,
 		};
 
 		data.controls = {

@@ -49,7 +49,8 @@ class DebugDisplay extends TextField
 		var currentCount = times.length;
 		currentFPS = Std.int((currentCount + cacheCount) / 2);
 
-		if (currentCount != cacheCount)
+		visible = Save.data.ui.debug_display ?? false;
+		if (visible && currentCount != cacheCount)
 		{
 			final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
 
