@@ -1,0 +1,61 @@
+package maki.sap_mingled.util;
+
+import flixel.FlxG;
+import flixel.input.keyboard.FlxKey;
+
+class Controls
+{
+	public static function withControls(control:String, method:Array<FlxKey>->Bool):Bool
+	{
+		if (method == null)
+		{
+			trace('You can\'t do anything with "$control" cause method is null');
+			return false;
+		}
+
+		var saveField = Reflect.field(Save.data.controls, '$control');
+		var saveFieldAlt = Reflect.field(Save.data.controls, '${control}_alt');
+
+		if (saveField == null && saveFieldAlt == null)
+		{
+			trace('Cannot check if "$control" is pressed : Invalid Control');
+			return false;
+		}
+
+		var mainKey = FlxKey.fromString(saveField);
+		var altKey = FlxKey.fromString(saveFieldAlt);
+
+		switch ([mainKey, altKey])
+		{
+			case [null, _]: return method([altKey]);
+			case [_, null]: return method([mainKey]);
+			case [_, _]: return method([mainKey, altKey]);
+		}
+
+		return false;
+	}
+
+	public static function pressed(control:String):Bool
+	{
+		return withControls(control, function(keys):Bool
+		{
+			return FlxG.keys.anyPressed(keys);
+		});
+	}
+
+	public static function justPressed(control:String):Bool
+	{
+		return withControls(control, function(keys):Bool
+		{
+			return FlxG.keys.anyJustPressed(keys);
+		});
+	}
+
+	public static function justReleased(control:String):Bool
+	{
+		return withControls(control, function(keys):Bool
+		{
+			return FlxG.keys.anyJustReleased(keys);
+		});
+	}
+}
