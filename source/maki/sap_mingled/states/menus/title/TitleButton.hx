@@ -9,15 +9,18 @@ class TitleButton extends FlxText
 
 	var background:FlxSprite;
 
-	override public function new(text:String, ID:Int)
+	var onSelect:FuncVoid;
+
+	override public function new(text:String, ID:Int, ?onSelect:FuncVoid)
 	{
 		super(0, 0, 0, text, 32);
 
 		arrow = new SelectionArrow(32);
-		
+
 		background = new FlxSprite().makeGraphic(1, 1, 0xFF000000);
 
 		this.ID = ID;
+		this.onSelect = onSelect;
 	}
 
 	override function draw()
@@ -45,8 +48,14 @@ class TitleButton extends FlxText
 
 	public function updateSelection(currentSelected:Int)
 	{
-		final selected = ID == currentSelected;
+		if (arrow == null) return;
 
-		arrow.selected = selected;
+		arrow.selected = ID == currentSelected;
+	}
+
+	public function select(currentSelected:Int)
+	{
+		if (onSelect == null) return;
+		if (currentSelected == ID) onSelect();
 	}
 }

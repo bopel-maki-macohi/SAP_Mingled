@@ -16,7 +16,22 @@ class TitleState extends FlxState
 	var buttons:FlxTypedSpriteContainer<TitleButton>;
 	var buttonsCam:FlxCamera;
 	var buttonsCamFollow:FlxObject;
-	var entries:Array<String> = ['Play', 'Options', 'Credits',];
+
+	var order = ['Play', 'Options', 'Credits',];
+	var entries:Map<String, FuncVoid> = [
+		'Play' => function()
+		{
+			trace('Play');
+		},
+		'Options' => function()
+		{
+			trace('Options');
+		},
+		'Credits' => function()
+		{
+			trace('Credits');
+		},
+	];
 
 	var selection:Int = 0;
 
@@ -42,12 +57,12 @@ class TitleState extends FlxState
 		add(buttons);
 
 		var i = 0;
-		for (entry in entries)
+		for (entry in order)
 		{
 			if (entry == null) continue;
 			if (entry?.trim()?.length < 1) continue;
 
-			var entry_button = new TitleButton(entry, i);
+			var entry_button = new TitleButton(entry, i, entries.get(entry));
 			buttons.add(entry_button);
 
 			i++;
@@ -79,6 +94,8 @@ class TitleState extends FlxState
 
 		if (Controls.justPressed('ui_up')) changeSelection(-1);
 		if (Controls.justPressed('ui_down')) changeSelection(1);
+
+		if (Controls.justPressed('ui_accept')) for (button in buttons) button.select(selection);
 	}
 
 	function changeSelection(amount:Int)
