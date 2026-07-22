@@ -23,7 +23,7 @@ class Main extends FlxGame
 	{
 		super.create(_);
 
-		debugText = new DebugText(2, 2, 0xFFFFFFFF);
+		debugText = new DebugText(4, 4, 0xFFFFFFFF);
 		addChild(debugText);
 
 		// trace(LanguageManager.getClassLocalePrefix(this, false));
