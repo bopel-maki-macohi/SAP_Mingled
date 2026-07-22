@@ -42,7 +42,7 @@ class LanguageManager
 	{
 		final cls = Type.getClass(_cls ?? null);
 
-		final meta_localePrefix:Array<Dynamic> = ClassUtil.getMetadata(cls)?.localePrefix;
+		final meta_localePrefix:Array<Dynamic> = ClassUtil.getMetadata(_cls)?.localePrefix;
 
 		if (meta_localePrefix != null && meta_localePrefix?.length > 0)
 		{
