@@ -12,7 +12,6 @@ import maki.sap_mingled.data.params.*;
 import maki.sap_mingled.game.*;
 import maki.sap_mingled.save.*;
 import maki.sap_mingled.states.*;
-import maki.sap_mingled.states.backgrounds.*;
 import maki.sap_mingled.states.firsttime.*;
 import maki.sap_mingled.states.menus.*;
 import maki.sap_mingled.states.menus.options.*;
