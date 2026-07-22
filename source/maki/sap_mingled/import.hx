@@ -11,10 +11,11 @@ import maki.sap_mingled.states.firsttime.*;
 import maki.sap_mingled.states.menus.*;
 import maki.sap_mingled.states.menus.title.*;
 import maki.sap_mingled.util.*;
+import maki.sap_mingled.util.typedefs.null_basic_type.*;
 #end
 import maki.sap_mingled.util.typedefs.*;
 import maki.sap_mingled.util.typedefs.functions.*;
+import maki.sap_mingled.util.typedefs.null_basic_type.standard.*;
 import maki.sap_mingled.util.typedefs.sap.*;
-import maki.sap_mingled.util.typedefs.standard.*;
 
 using StringTools;

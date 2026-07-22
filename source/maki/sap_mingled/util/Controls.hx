@@ -5,7 +5,7 @@ import flixel.input.keyboard.FlxKey;
 
 class Controls
 {
-	public static function withControls(control:String, method:FuncAInBoolOut<Array<FlxKey>>):Bool
+	public static function withControls(control:String, method:FuncAInBoolOut<Array<NullFlxKey>>):Bool
 	{
 		if (method == null)
 		{
@@ -22,13 +22,18 @@ class Controls
 			return false;
 		}
 
-		var mainKey = FlxKey.fromString(saveField);
-		var altKey = FlxKey.fromString(saveFieldAlt);
+		var mainKey:NullFlxKey = null;
+		var altKey:NullFlxKey = null;
+		
+		mainKey = FlxKey.fromString(saveField);
+		altKey = FlxKey.fromString(saveFieldAlt);
 
 		switch ([mainKey, altKey])
 		{
 			case [null, _]: return method([altKey]);
+			case [NONE, _]: return method([altKey]);
 			case [_, null]: return method([mainKey]);
+			case [_, NONE]: return method([mainKey]);
 			case [_, _]: return method([mainKey, altKey]);
 		}
 

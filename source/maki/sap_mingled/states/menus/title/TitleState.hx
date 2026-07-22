@@ -76,5 +76,16 @@ class TitleState extends FlxState
 			button.y = (button.ID * button.size * 2);
 			button.updateSelection(selection);
 		}
+
+		if (Controls.justPressed('ui_up')) changeSelection(-1);
+		if (Controls.justPressed('ui_down')) changeSelection(1);
+	}
+
+	function changeSelection(amount:Int)
+	{
+		selection += amount;
+
+		if (selection < 0) selection = buttons.length - 1;
+		if (selection > buttons.length - 1) selection = 0;
 	}
 }

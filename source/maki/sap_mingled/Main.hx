@@ -13,7 +13,7 @@ class Main extends FlxGame
 		super(640, 480, StartingState.get(), 60, 60, true, false);
 	}
 
-	public static var mouseEnabled:Bool = false;
+	public static var mouseVisible:Bool = false;
 
 	public static var debugText:DebugText;
 
@@ -34,7 +34,7 @@ class Main extends FlxGame
 	{
 		super.update();
 
-		FlxG.mouse.visible = mouseEnabled;
+		FlxG.mouse.visible = mouseVisible;
 	}
 
 	override function draw()
