@@ -37,6 +37,8 @@ class Main extends FlxGame
 	override function step()
 	{
 		super.step();
+
+		debugDisplay.visible = !FlxG.debugger.visible;
 	}
 
 	override function update()
