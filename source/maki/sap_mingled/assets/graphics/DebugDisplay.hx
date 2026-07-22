@@ -7,8 +7,8 @@ import openfl.system.System;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
-@localePrefix('ui.debugtext')
-class DebugText extends TextField
+@localePrefix('ui.debug.display')
+class DebugDisplay extends TextField
 {
 	/**
 		The current frame rate, expressed using frames-per-second

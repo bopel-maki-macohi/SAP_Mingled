@@ -17,17 +17,17 @@ class Main extends FlxGame
 
 	public static var mouseVisible:Bool = false;
 
-	public static var debugText:DebugText;
+	public static var debugDisplay:DebugDisplay;
 
 	override function create(_:Event)
 	{
 		super.create(_);
 
-		debugText = new DebugText(4, 4, 0xFFFFFFFF);
-		addChild(debugText);
+		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);
+		addChild(debugDisplay);
 
 		// trace(LanguageManager.getClassLocalePrefix(this, false));
-		// trace(LanguageManager.getClassLocalePrefix(debugText, false));
+		// trace(LanguageManager.getClassLocalePrefix(DebugDisplay, false));
 	}
 
 	override function step()
