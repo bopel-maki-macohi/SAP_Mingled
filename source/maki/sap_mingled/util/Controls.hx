@@ -24,7 +24,7 @@ class Controls
 
 		var mainKey:NullFlxKey = null;
 		var altKey:NullFlxKey = null;
-		
+
 		mainKey = FlxKey.fromString(saveField);
 		altKey = FlxKey.fromString(saveFieldAlt);
 

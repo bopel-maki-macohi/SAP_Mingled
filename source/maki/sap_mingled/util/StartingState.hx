@@ -7,7 +7,6 @@ class StartingState
 	public static function get():InitialState
 	{
 		#if SAPM_START_INTRO
-
 		/**
 		 * 	Save this for when theres
 		 * 	something worth warning people about.
@@ -29,7 +28,6 @@ class StartingState
 
 			return IntroState;
 		}
-
 		#end
 
 		#if SAPM_START_PLAYMENU
