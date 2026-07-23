@@ -18,6 +18,15 @@ class OptionMacro
 			if (file != null) lines = [for (line in file.split('\n')) if (line.trim().length > 0) line.trim()];
 		}
 
+		if (field == 'grid_skins' && Math.random() * 1024 <= 1)
+		{
+			for (i => line in lines)
+			{
+				if (line == 'minceraft') lines[i] = 'minecraft';
+				if (line == 'minecraft') lines[i] = 'minceraft';
+			}
+		}
+
 		trace('Array Option : $field=$lines');
 
 		return macro $v{lines};

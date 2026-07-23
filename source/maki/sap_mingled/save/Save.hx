@@ -123,6 +123,9 @@ class Save
 
 		data.controls.ui_back ??= 'ESCAPE';
 		data.controls.ui_back_alt ??= '';
+
+		if (data.ui.grid_skin == 'minecraft' && OptionsUtil.grid_skins.contains('minceraft')) data.ui.grid_skin = 'minceraft';
+		if (data.ui.grid_skin == 'minceraft' && OptionsUtil.grid_skins.contains('minecraft')) data.ui.grid_skin = 'minecraft';
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)
