@@ -57,7 +57,7 @@ class PlayMenuState extends SAPState
 			var icon = new LevelIcon(entry, i);
 			icons.add(icon);
 
-			icon.replaceColorShader.setTargetColor(FlxColor.WHITE);
+			// icon.replaceColorShader.setTargetColor(FlxColor.WHITE);
 			icon.replaceColorShader.setReplacementColor(FlxColor.YELLOW);
 		}
 
