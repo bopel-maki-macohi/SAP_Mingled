@@ -5,11 +5,22 @@
 	},
 	"keys": {
 		"misc.title": "Sinco and Portilizen : Mingled",
+
 		"ui.debug.display.fps": "FPS",
 		"ui.debug.display.memory": "Memory",
+		
 		"menus.title.option.play": "Play",
 		"menus.title.option.options": "Options",
 		"menus.title.option.credits": "Credits",
+		
+		"menus.options.grid_skin": "Grid Skin",
+		"menus.options.grid_skin.modern": "Modern",
+		"menus.options.grid_skin.retro": "Retro",
+		
+		"menus.options.debug_display": "Grid Skin",
+		"menus.options.debug_display.modern": "Modern",
+		"menus.options.debug_display.retro": "Retro",
+
 		"level.unknown.title": "Unknown"
 	}
 }

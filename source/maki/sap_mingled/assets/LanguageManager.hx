@@ -30,8 +30,10 @@ class LanguageManager
 
 	public static function getLanguageKey(key:String, ?defaultStr:String):String
 	{
-		if (locale != null)
+		if (locale != null && key != null)
 		{
+			key = key.replace(' ', '_');
+
 			var field = Reflect.field(locale?.keys, key);
 
 			if (field != null) return field;

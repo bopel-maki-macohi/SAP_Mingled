@@ -85,7 +85,7 @@ class TitleState extends SAPState
 		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
 		buttonsCam.focusOn(buttonsCamFollow.getPosition());
 
-		versionText = new FlxText(0, 0, FlxG.width / 8, 'v${Constants.GAME_VERSION}', 16);
+		versionText = new FlxText(0, 0, FlxG.width / 6, 'v${Constants.GAME_VERSION}', 16);
 		add(versionText);
 		versionText.x = 4;
 		versionText.y = FlxG.height - versionText.height;
