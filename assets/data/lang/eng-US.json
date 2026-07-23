@@ -17,6 +17,10 @@
 		"menus.options.grid_skin.modern": "Modern",
 		"menus.options.grid_skin.retro": "Retro",
 		"menus.options.grid_skin.osa": "OSA",
+		"menus.options.grid_skin.placeholder": "Placeholder",
+		"menus.options.grid_skin.grayscale": "Grayscale",
+		"menus.options.grid_skin.minceraft": "Minecraft",
+		"menus.options.grid_skin.minecraft": "Minceraft",
 		
 		"menus.options.debug_display": "Debug Display",
 		"menus.options.debug_display.true": "Enabled",

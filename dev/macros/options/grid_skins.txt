@@ -3,3 +3,4 @@ retro
 osa
 placeholder
 grayscale
+minceraft
