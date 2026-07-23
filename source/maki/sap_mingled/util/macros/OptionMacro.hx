@@ -18,7 +18,7 @@ class OptionMacro
 			if (file != null) lines = [for (line in file.split('\n')) if (line.trim().length > 0) line.trim()];
 		}
 
-		if (field == 'grid_skins' && Math.random() * 1024 <= 1)
+		if (field == 'grid_skins' && Math.floor(Math.random() * 1024) == 0)
 		{
 			for (i => line in lines)
 			{
