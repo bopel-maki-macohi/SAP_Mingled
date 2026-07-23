@@ -57,6 +57,7 @@ class PlayMenuState extends SAPState
 			var icon = new LevelIcon(entry, i);
 			icons.add(icon);
 
+			icon.replaceColorShader.setTargetColor(FlxColor.WHITE);
 			icon.replaceColorShader.setReplacementColor(FlxColor.YELLOW);
 		}
 
@@ -87,7 +88,7 @@ class PlayMenuState extends SAPState
 			icon.x = (icon.ID * icon.width);
 
 			icon.replaceColorShader?.setOn(selection == icon.ID);
-			if (selection == icon.ID) iconsCamFollow.x = icon.x;
+			if (selection == icon.ID) iconsCamFollow.x = FlxG.width / 2 + icon.x;
 		}
 
 		if (Controls.justPressed('ui_left')) changeSelection(-1);
