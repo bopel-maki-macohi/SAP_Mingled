@@ -1,6 +1,9 @@
 modern
 retro
-osa
 placeholder
 grayscale
 minceraft
+osa_osin
+osa_sinco
+osa_tirok
+osa_loroc
