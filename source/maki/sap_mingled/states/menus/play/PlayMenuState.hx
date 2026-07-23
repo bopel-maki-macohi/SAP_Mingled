@@ -114,6 +114,13 @@ class PlayMenuState extends SAPState
 
 	function selectLevel()
 	{
-		trace(order[selection]);
+		var level = order[selection].toLowerCase();
+
+		trace(level);
+
+		switch (level)
+		{
+			case 'level1': FlxG.switchState(() -> new Level1());
+		}
 	}
 }
