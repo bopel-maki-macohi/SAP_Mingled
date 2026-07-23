@@ -19,7 +19,7 @@ class GridBG extends FlxBackdrop
 		if (POSITION == null) POSITION = new FlxPoint();
 		else setPosition(POSITION.x, POSITION.y);
 
-		setSkin(Save.data?.ui?.grid_skin ?? 'modern');
+		setSkin(Save.data?.ui?.grid_skin ?? OptionsUtil.grid_skins[0]);
 	}
 
 	public function setSkin(skin:String)
