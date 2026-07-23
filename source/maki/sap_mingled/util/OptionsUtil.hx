@@ -1,5 +1,6 @@
 package maki.sap_mingled.util;
 
+import flixel.FlxG;
 import flixel.math.FlxMath;
 
 class OptionsUtil
@@ -15,8 +16,10 @@ class OptionsUtil
 	{
 		if (values == null) return current;
 
-		var i = values.indexOf(current) + 1;
+		var i = values.indexOf(current) + ((FlxG.keys.pressed.SHIFT) ? -1 : 1);
+
 		if (i > values.length - 1) i = 0;
+		if (i < 0) i = values.length - 1;
 
 		return values[i];
 	}
@@ -27,7 +30,7 @@ class OptionsUtil
 	{
 		if (params == null) return current;
 
-		current += params.increment;
+		current += params.increment * ((FlxG.keys.pressed.SHIFT) ? -1 : 1);
 
 		if (current >= params.max) current = params?.min ?? 0;
 
@@ -38,7 +41,7 @@ class OptionsUtil
 	{
 		if (params == null) return current;
 
-		current += params.increment;
+		current += params.increment * ((FlxG.keys.pressed.SHIFT) ? -1 : 1);
 
 		if (current >= params.max) current = params?.min ?? 0;
 
