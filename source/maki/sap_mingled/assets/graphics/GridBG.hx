@@ -24,7 +24,7 @@ class GridBG extends FlxBackdrop
 
 	public function setSkin(skin:String)
 	{
-		loadGraphic(get_path_game_menus('grid/$skin'));
+		loadGraphic(get_path_game_menus('grid_skins/$skin'));
 		setGraphicSize(32);
 		velocity.set(16, 16);
 	}

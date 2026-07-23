@@ -14,8 +14,9 @@
 		"menus.title.option.credits": "Credits",
 		
 		"menus.options.grid_skin": "Grid Skin",
-		"menus.options.grid_skin.modern": "Modern",
+		"menus.optionsgrid_skin.modern": "Modern",
 		"menus.options.grid_skin.retro": "Retro",
+		"menus.options.grid_skin.osa": "OSA",
 		
 		"menus.options.debug_display": "Debug Display",
 		"menus.options.debug_display.true": "Enabled",
