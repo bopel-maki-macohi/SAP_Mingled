@@ -4,6 +4,8 @@ import flixel.FlxSprite;
 
 class LevelIcon extends FlxSprite
 {
+	public var replaceColorShader:ReplaceColorShader;
+
 	public function new(icon = 'unknown', ID:Int)
 	{
 		super(x, y);
@@ -14,5 +16,7 @@ class LevelIcon extends FlxSprite
 		updateHitbox();
 
 		this.ID = ID;
+
+		shader = replaceColorShader = new ReplaceColorShader(false);
 	}
 }

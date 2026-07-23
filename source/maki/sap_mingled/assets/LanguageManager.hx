@@ -39,7 +39,7 @@ class LanguageManager
 			if (field != null) return field;
 		}
 
-		return '${defaultStr}' ?? '[$key]';
+		return '${defaultStr ?? '[$key]'}';
 	}
 
 	public static function getClassLocalePrefix(_cls:Any):String

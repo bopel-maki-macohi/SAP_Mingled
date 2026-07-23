@@ -3,6 +3,7 @@ package maki.sap_mingled;
 import flixel.FlxG;
 import flixel.FlxGame;
 import lime.app.Application;
+import lime.utils.Log;
 import openfl.events.Event;
 
 class Main extends FlxGame
@@ -23,6 +24,8 @@ class Main extends FlxGame
 
 	override function create(_:Event)
 	{
+		Log.level = NONE;
+
 		super.create(_);
 
 		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);

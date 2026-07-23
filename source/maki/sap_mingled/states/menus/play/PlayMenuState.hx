@@ -14,7 +14,18 @@ class PlayMenuState extends SAPState
 	var iconsCam:FlxCamera;
 	var iconsCamFollow:FlxObject;
 
-	var order = ['level1',];
+	var order = [
+		'level1',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+		'unknown',
+	];
 
 	var selection = 0;
 
@@ -45,6 +56,8 @@ class PlayMenuState extends SAPState
 		{
 			var icon = new LevelIcon(entry, i);
 			icons.add(icon);
+
+			icon.replaceColorShader.setReplacementColor(FlxColor.YELLOW);
 		}
 
 		selectionText = new FlxText(0, 0, FlxG.width, '2parkeR', 32);
@@ -73,19 +86,15 @@ class PlayMenuState extends SAPState
 		{
 			icon.x = (icon.ID * icon.width);
 
-			icon.color = FlxColor.WHITE;
-			if (selection == icon.ID)
-			{
-				iconsCamFollow.x = icon.x;
-				icon.color = FlxColor.YELLOW;
-			}
+			icon.replaceColorShader?.setOn(selection == icon.ID);
+			if (selection == icon.ID) iconsCamFollow.x = icon.x;
 		}
 
 		if (Controls.justPressed('ui_left')) changeSelection(-1);
 		if (Controls.justPressed('ui_right')) changeSelection(1);
 		if (Controls.justPressed('ui_accept')) selectLevel();
 
-		selectionText.text = getLanguageKey('level.${order[selection]}.title');
+		selectionText.text = getLanguageKey('level.${order[selection]}.title', order[selection]);
 		selectionText.screenCenter();
 		selectionText.y -= selectionText.height * 2;
 	}

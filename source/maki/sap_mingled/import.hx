@@ -5,6 +5,7 @@ import maki.sap_mingled.assets.AssetManager.*;
 import maki.sap_mingled.assets.LanguageManager.*;
 import maki.sap_mingled.assets.graphics.*;
 import maki.sap_mingled.assets.graphics.ui.*;
+import maki.sap_mingled.assets.shaders.*;
 import maki.sap_mingled.data.*;
 import maki.sap_mingled.data.file.*;
 import maki.sap_mingled.data.file.lang.*;

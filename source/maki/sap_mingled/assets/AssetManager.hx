@@ -19,4 +19,6 @@ class AssetManager
 	public static function get_path_data(path:String, ?ext:String = 'json'):String return get('data/$path', ext);
 
 	public static function get_path_data_lang(path:String, ?ext:String = 'json'):String return get_path_data('lang/$path', ext);
+	
+	public static function get_path_shaders(path:String, ?ext:String = 'frag'):String return get('shaders/$path', ext);
 }
