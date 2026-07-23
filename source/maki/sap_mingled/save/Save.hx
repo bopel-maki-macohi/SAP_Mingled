@@ -88,7 +88,7 @@ class Save
 			debug_display: null,
 		};
 
-		data.ui.grid_skin ??= 'modern';
+		data.ui.grid_skin ??= SaveOptionsConstants.grid_skins[0];
 		data.ui.debug_display ??= #if debug true #else false #end;
 
 		data.controls ??= {

@@ -33,24 +33,26 @@ class OptionsMenuState extends SAPState
 		{
 			var curSkin = Save.data.ui.grid_skin;
 			var skins = SaveOptionsConstants.grid_skins;
-			// trace(curSkin);
-
-			var i = skins.indexOf(curSkin);
-			// trace(i);
-			i++;
+			var i = skins.indexOf(Save.data.ui.grid_skin) + 1;
 			if (i > skins.length - 1) i = 0;
-			// trace(i);
-
-			curSkin = skins[i];
-			// trace(skins);
-			// trace(curSkin);
-			GridBG.instance?.setSkin(Save.data.ui.grid_skin = curSkin);
+			GridBG.instance?.setSkin(Save.data.ui.grid_skin = skins[i]);
 		}, function(entry)
 		{
 			final keyBase = '${getClassLocalePrefix(this)}.${entry.toLowerCase()}';
 			getLanguageKey('${getClassLocalePrefix(this)}.${entry.toLowerCase()}');
 
 			return '${getLanguageKey(keyBase)} : ${getLanguageKey('$keyBase.${Save.data.ui.grid_skin}', Save.data.ui.grid_skin)}';
+		});
+
+		newentry('Debug Display', function()
+		{
+			Save.data.ui.debug_display = !Save.data.ui.debug_display;
+		}, function(entry)
+		{
+			final keyBase = '${getClassLocalePrefix(this)}.${entry.toLowerCase()}';
+			getLanguageKey('${getClassLocalePrefix(this)}.${entry.toLowerCase()}');
+
+			return '${getLanguageKey(keyBase)} : ${getLanguageKey('$keyBase.${Save.data.ui.debug_display}', Save.data.ui.debug_display)}';
 		});
 	}
 

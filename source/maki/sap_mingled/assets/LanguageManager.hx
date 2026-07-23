@@ -28,18 +28,18 @@ class LanguageManager
 		}
 	}
 
-	public static function getLanguageKey(key:String, ?defaultStr:String):String
+	public static function getLanguageKey(key:Dynamic, ?defaultStr:Dynamic):String
 	{
 		if (locale != null && key != null)
 		{
-			key = key.replace(' ', '_');
+			final _key = '$key'.replace(' ', '_');
 
-			var field = Reflect.field(locale?.keys, key);
+			var field = Reflect.field(locale?.keys, _key);
 
 			if (field != null) return field;
 		}
 
-		return defaultStr ?? '[$key]';
+		return '${defaultStr}' ?? '[$key]';
 	}
 
 	public static function getClassLocalePrefix(_cls:Any):String
