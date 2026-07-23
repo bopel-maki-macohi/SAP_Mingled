@@ -14,18 +14,7 @@ class PlayMenuState extends SAPState
 	var iconsCam:FlxCamera;
 	var iconsCamFollow:FlxObject;
 
-	var order = [
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-		'unknown',
-	];
+	var order = ['level1',];
 
 	var selection = 0;
 
@@ -94,6 +83,7 @@ class PlayMenuState extends SAPState
 
 		if (Controls.justPressed('ui_left')) changeSelection(-1);
 		if (Controls.justPressed('ui_right')) changeSelection(1);
+		if (Controls.justPressed('ui_accept')) selectLevel();
 
 		selectionText.text = getLanguageKey('level.${order[selection]}.title');
 		selectionText.screenCenter();
@@ -110,5 +100,10 @@ class PlayMenuState extends SAPState
 		SAPAudioManager.playSound({
 			path: get_path_game_sounds('scroll')
 		});
+	}
+
+	function selectLevel()
+	{
+		trace(order[selection]);
 	}
 }
