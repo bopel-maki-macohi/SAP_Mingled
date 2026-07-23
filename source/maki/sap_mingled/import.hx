@@ -20,7 +20,9 @@ import maki.sap_mingled.states.menus.title.*;
 import maki.sap_mingled.util.*;
 import maki.sap_mingled.util.metadata.*;
 import maki.sap_mingled.util.typedefs.null_basic_type.*;
+import maki.sap_mingled.util.typedefs.null_basic_type.flixel.*;
 #end
+import maki.sap_mingled.util.macros.*;
 import maki.sap_mingled.util.typedefs.*;
 import maki.sap_mingled.util.typedefs.functions.*;
 import maki.sap_mingled.util.typedefs.null_basic_type.standard.*;

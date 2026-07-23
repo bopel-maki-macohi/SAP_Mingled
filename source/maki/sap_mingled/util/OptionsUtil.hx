@@ -4,7 +4,7 @@ import flixel.math.FlxMath;
 
 class OptionsUtil
 {
-	public static var grid_skins:Array<String> = ['modern', 'retro',];
+	public static var grid_skins:Array<String> = OptionMacro.buildArray('grid_skins');
 
 	public static function option_text(key_base:String, value:Any):String
 	{

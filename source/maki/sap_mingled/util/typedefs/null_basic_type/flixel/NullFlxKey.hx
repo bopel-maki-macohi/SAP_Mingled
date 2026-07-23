@@ -1,4 +1,4 @@
-package maki.sap_mingled.util.typedefs.null_basic_type;
+package maki.sap_mingled.util.typedefs.null_basic_type.flixel;
 
 import flixel.input.keyboard.FlxKey;
 
