@@ -77,6 +77,10 @@ class OptionsMenuState extends SAPState
 	{
 		super.update(elapsed);
 
+		if (SAPAudioManager.canPlayMusic && SAPAudioManager.currentTrack != get_path_ost('TwentyFive')) SAPAudioManager.playMusic({
+			path: get_path_ost('TwentyFive')
+		});
+
 		if (Controls.justPressed('ui_back'))
 		{
 			outroDelay = SAPAudioManager.playSound({

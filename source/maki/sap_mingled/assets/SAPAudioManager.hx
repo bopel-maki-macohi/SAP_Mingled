@@ -21,6 +21,15 @@ class SAPAudioManager
 		return sound;
 	}
 
+	public static var canPlayMusic(get,never):Bool;
+
+	static function get_canPlayMusic():Bool
+	{
+		return !FlxG.sound?.music?.playing ?? false;
+	}
+
+	public static var currentTrack:String = '';
+
 	public static function playMusic(params:PlayMusicParams):FlxSound
 	{
 		if (params == null) return null;
@@ -32,6 +41,8 @@ class SAPAudioManager
 
 		function playTheMusic()
 		{
+			currentTrack = params.path;
+
 			if (params.on_start != null) params.on_start();
 
 			if (fadeIn) music.fadeIn(params.fade_in_duration, 0, 1);

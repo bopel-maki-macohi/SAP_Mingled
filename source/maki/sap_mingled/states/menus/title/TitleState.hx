@@ -96,6 +96,10 @@ class TitleState extends SAPState
 	{
 		super.update(elapsed);
 
+		if (SAPAudioManager.canPlayMusic && SAPAudioManager.currentTrack != get_path_ost('TwentyFive')) SAPAudioManager.playMusic({
+			path: get_path_ost('TwentyFive')
+		});
+
 		for (button in buttons)
 		{
 			button.screenCenter(X);
