@@ -27,7 +27,7 @@ class Save
 
 		FlxG.save.bind('SAP_Mingled', 'Maki');
 
-		final raw_data = FlxG.save.data.sap;
+		final raw_data:Dynamic = FlxG.save.data.sap;
 
 		#if SAPM_SAVE_CLEAR
 		clear();
@@ -40,37 +40,7 @@ class Save
 			save();
 		});
 
-		var same = true;
-
-		var raw_fields = Reflect.fields(raw_data);
-		var fields = Reflect.fields(data);
-
-		same = raw_fields == fields;
-
-		if (same)
-		{
-			for (_field in fields)
-			{
-				if (!same) break;
-
-				var raw_field = Reflect.field(raw_fields, _field);
-				var field = Reflect.field(fields, _field);
-
-				same = raw_field != null && raw_field == field;
-
-				if (!same) trace('$_field is different! ($field != $raw_field)');
-			}
-		}
-
-		if (same)
-		{
-			trace('Loaded Save Data:\n${data}');
-		}
-		else
-		{
-			trace('Old Save Data:\n${raw_data}');
-			trace('New Save Data:\n${data}');
-		}
+		trace('Initalized Save Data:\n${raw_data}');
 	}
 
 	public static function clear()
