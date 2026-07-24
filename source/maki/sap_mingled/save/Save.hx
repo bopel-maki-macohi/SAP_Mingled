@@ -140,6 +140,8 @@ class Save
 
 		data.seed ??= random.currentSeed;
 		random.currentSeed = data.seed;
+
+		save();
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)

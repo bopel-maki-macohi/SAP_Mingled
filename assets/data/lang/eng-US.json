@@ -31,6 +31,8 @@
 		"menus.options.debug_display.true": "Enabled",
 		"menus.options.debug_display.false": "Disabled",
 
+		"menus.options.controls": "Controls...",
+
 		"level.unknown.title": "Unknown",
 		"level.level1.title": "Level 1"
 	}

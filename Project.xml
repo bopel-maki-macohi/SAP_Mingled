@@ -38,20 +38,12 @@
 	<!-- Backwards compatability -->
 	<define name="SAPM_SAVE_CLEAR" if="SAVE_CLEAR" />
 
-	<define name="SAPM_MEMORY_COUNTER" if="neko" />
-	<define name="SAPM_MEMORY_COUNTER" if="cpp" />
-	<define name="SAPM_MEMORY_COUNTER" if="hl" />
-	<section if="html5">
-		<define name="SAPM_MEMORY_COUNTER" if="js" />
-	</section>
+	<define name="SAPM_MEMORY_COUNTER" if="neko || cpp || hl || html5 js" />
 
-	<define name="SAPM_START_NO_INTRO" if="SAPM_START_PLAYMENU" />
+	<define name="SAPM_START_MENU" if="SAPM_START_PLAYMENU || SAPM_START_OPTIONSMENU" />
+	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL1 || SAPM_START_LEVEL2" />
 
-	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL1" />
-	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL2" />
-
-	<define name="SAPM_START_NO_INTRO" if="SAPM_START_PLAY" />
-
+	<define name="SAPM_START_NO_INTRO" if="SAPM_START_MENU || SAPM_START_PLAY" />
 	<define name="SAPM_START_INTRO" unless="SAPM_START_NO_INTRO"/>
 
 </project>

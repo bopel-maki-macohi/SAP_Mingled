@@ -5,8 +5,8 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 
-@localePrefix('menus.options')
-class OptionsMenuState extends SAPState
+@localePrefix('menus.options.controls')
+class ControlsMenuState extends SAPState
 {
 	var buttons:FlxTypedSpriteContainer<MenuButton>;
 	var buttonsCam:FlxCamera;
@@ -29,18 +29,10 @@ class OptionsMenuState extends SAPState
 	{
 		super();
 
-		newentry('Grid Skin',
-			() -> GridBG.instance?.setSkin(Save.data.ui.grid_skin = OptionsUtil.array_option(Save.data.ui.grid_skin, OptionsUtil.grid_skins)),
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Save.data.ui.grid_skin),);
-
-		newentry('Debug Display', () -> Save.data.ui.debug_display = OptionsUtil.bool_option(Save.data.ui.debug_display),
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Save.data.ui.debug_display),);
-
-		newentry('Controls', () ->
+		for (control in Reflect.fields(Save.data.controls))
 		{
-			FlxG.switchState(() -> new ControlsMenuState());
-		},
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', null),);
+			trace(control);
+		}
 	}
 
 	var selection:Int = 0;
@@ -92,7 +84,7 @@ class OptionsMenuState extends SAPState
 			outroDelay = SAPAudioManager.playSound({
 				path: get_path_game_sounds('cancel')
 			})?.length / 2000 ?? 0;
-			FlxG.switchState(() -> new TitleState());
+			FlxG.switchState(() -> new OptionsMenuState());
 		}
 		for (button in buttons)
 		{

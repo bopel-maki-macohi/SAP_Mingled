@@ -33,6 +33,10 @@ class StartingState
 		#if SAPM_START_PLAYMENU
 		return PlayMenuState;
 		#end
+		
+		#if SAPM_START_OPTIONSMENU
+		return OptionsMenuState;
+		#end
 
 		#if SAPM_START_LEVEL1
 		return Level1;
