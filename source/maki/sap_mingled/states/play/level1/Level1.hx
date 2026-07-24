@@ -1,5 +1,6 @@
 package maki.sap_mingled.states.play.level1;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxColor;
@@ -47,9 +48,13 @@ class Level1 extends Level
 	{
 		super.unpausedUpdate(elapsed);
 
-		if (Save.random.bool(30))
+		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
+		if (unpausedTick != 0 && unpausedTick % 25 == 0)
 		{
-			trace('Ammo / Obstacle spawn chance');
+			if (Save.random.bool(30))
+			{
+				trace('Ammo / Obstacle spawn chance');
+			}
 		}
 	}
 }
