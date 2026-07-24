@@ -141,7 +141,7 @@ class Save
 		data.seed ??= random.currentSeed;
 		random.currentSeed = data.seed;
 
-		save();
+		cleanup();
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)
@@ -152,7 +152,7 @@ class Save
 		if (data.save_version >= min && data.save_version < max) whenInRange();
 	}
 
-	public static function save()
+	public static function cleanup()
 	{
 		data.game = {
 			persistance_keys: data?.game?.persistance_keys ?? [],
@@ -188,6 +188,11 @@ class Save
 			controls: data.controls,
 			seed: random.currentSeed,
 		}
+	}
+
+	public static function save()
+	{
+		cleanup();
 
 		trace('Ending Save Data:\n${data}');
 		FlxG.save.flush();

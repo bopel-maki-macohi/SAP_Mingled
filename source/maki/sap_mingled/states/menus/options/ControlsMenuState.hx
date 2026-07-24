@@ -9,8 +9,8 @@ import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 class ControlsMenuState extends SAPState
 {
 	var buttons:FlxTypedSpriteContainer<MenuButton>;
-	var buttonsCam:FlxCamera;
-	var buttonsCamFollow:FlxObject;
+	var controlsButtonsCam:FlxCamera;
+	var controlsButtonsCamFollow:FlxObject;
 
 	var order = [];
 	var entries:Map<String, FuncVoid> = [];
@@ -29,9 +29,16 @@ class ControlsMenuState extends SAPState
 	{
 		super();
 
-		for (control in Reflect.fields(Save.data.controls))
+		var controls = Reflect.fields(Save.data.controls);
+		controls.sort((a, b) -> return SortUtil.alphabetically(a, b));
+
+		for (control in controls)
 		{
-			trace(control);
+			newentry(control, function()
+			{
+				trace(control);
+			},
+				(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Reflect.field(Save.data.controls, control)),);
 		}
 	}
 
@@ -58,17 +65,17 @@ class ControlsMenuState extends SAPState
 			i++;
 		}
 
-		buttonsCam = new FlxCamera();
-		FlxG.cameras.add(buttonsCam, false);
-		buttonsCam.bgColor = 0x00000000;
+		controlsButtonsCam = new FlxCamera();
+		FlxG.cameras.add(controlsButtonsCam, false);
+		controlsButtonsCam.bgColor = 0x00000000;
 
-		buttons.cameras = [buttonsCam];
+		buttons.cameras = [controlsButtonsCam];
 
-		buttonsCamFollow = new FlxObject(FlxG.width / 2);
-		add(buttonsCamFollow);
+		controlsButtonsCamFollow = new FlxObject(FlxG.width / 2);
+		add(controlsButtonsCamFollow);
 
-		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
-		buttonsCam.focusOn(buttonsCamFollow.getPosition());
+		controlsButtonsCam.focusOn(controlsButtonsCamFollow.getPosition());
+		controlsButtonsCam.follow(controlsButtonsCamFollow, LOCKON, 0.04);
 	}
 
 	override function update(elapsed:Float)
@@ -95,7 +102,7 @@ class ControlsMenuState extends SAPState
 			button.y = (button.ID * button.size * 2);
 			button.updateSelection(selection);
 
-			buttonsCamFollow.y = button.y;
+			controlsButtonsCamFollow.y = button.y;
 		}
 
 		if (Controls.justPressed('ui_up')) changeSelection(-1);

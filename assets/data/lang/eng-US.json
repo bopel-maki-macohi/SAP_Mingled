@@ -33,6 +33,20 @@
 
 		"menus.options.controls": "Controls...",
 
+		"menus.options.controls.ui_accept": "UI Accept",
+		"menus.options.controls.ui_accept_alt": "UI Accept (Alt)",
+		"menus.options.controls.ui_left": "UI Left",
+		"menus.options.controls.ui_left_alt": "UI Left (Alt)",
+		"menus.options.controls.ui_down": "UI Down",
+		"menus.options.controls.ui_down_alt": "UI Down (Alt)",
+		"menus.options.controls.ui_up": "UI Up",
+		"menus.options.controls.ui_up_alt": "UI Up (Alt)",
+		"menus.options.controls.ui_right": "UI Right",
+		"menus.options.controls.ui_right_alt": "UI Right (Alt)",
+
+		"menus.options.controls.game_jump": "Game Jump",
+		"menus.options.controls.game_jump_alt": "Game Jump (Alt)",
+
 		"level.unknown.title": "Unknown",
 		"level.level1.title": "Level 1"
 	}
