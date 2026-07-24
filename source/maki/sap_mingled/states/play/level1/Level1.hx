@@ -29,10 +29,22 @@ class Level1 extends Level
 		port = new FlxSprite();
 
 		port.makeGraphic(32, 32, FlxColor.MAGENTA);
+		enemy.makeGraphic(64, 64, FlxColor.RED);
 
 		add(bullets);
 		add(obstacles);
 		add(enemy);
 		add(port);
+
+		port.screenCenter();
+		enemy.screenCenter();
+
+		port.y += port.height * 4;
+		enemy.y -= enemy.height * 2;
+	}
+
+	override function unpausedUpdate(elapsed:Float)
+	{
+		super.unpausedUpdate(elapsed);
 	}
 }
