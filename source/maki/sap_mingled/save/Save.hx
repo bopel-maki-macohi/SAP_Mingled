@@ -6,7 +6,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 9;
+	public static final SAVE_VERSION:NullInt = 10;
 
 	public static var data(get, set):SaveData;
 
@@ -110,6 +110,8 @@ class Save
 			ui_accept_alt: null,
 			ui_back: null,
 			ui_back_alt: null,
+			game_jump: null,
+			game_jump_alt: null,
 		};
 
 		data.controls.ui_up ??= 'UP';
@@ -129,6 +131,9 @@ class Save
 
 		data.controls.ui_back ??= 'ESCAPE';
 		data.controls.ui_back_alt ??= '';
+
+		data.controls.game_jump ??= 'SPACE';
+		data.controls.game_jump_alt ??= 'Z';
 
 		if (data.ui.grid_skin == 'minecraft' && OptionsUtil.grid_skins.contains('minceraft')) data.ui.grid_skin = 'minceraft';
 		if (data.ui.grid_skin == 'minceraft' && OptionsUtil.grid_skins.contains('minecraft')) data.ui.grid_skin = 'minecraft';
@@ -170,6 +175,8 @@ class Save
 			ui_accept_alt: data.controls.ui_accept_alt,
 			ui_back: data.controls.ui_back,
 			ui_back_alt: data.controls.ui_back_alt,
+			game_jump: data.controls.game_jump,
+			game_jump_alt: data.controls.game_jump_alt,
 		};
 
 		data = {

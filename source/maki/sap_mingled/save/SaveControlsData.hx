@@ -19,4 +19,7 @@ typedef SaveControlsData =
 
 	var ui_back:String;
 	var ui_back_alt:String;
+
+	var game_jump:String;
+	var game_jump_alt:String;
 }
