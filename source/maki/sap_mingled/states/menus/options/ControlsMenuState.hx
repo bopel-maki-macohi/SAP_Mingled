@@ -71,6 +71,8 @@ class ControlsMenuState extends SAPState
 
 		buttons.cameras = [buttonsCam];
 
+		buttonsCam.zoom = 0.75;
+
 		buttonsCamFollow = new FlxObject(FlxG.width / 2);
 		add(buttonsCamFollow);
 
