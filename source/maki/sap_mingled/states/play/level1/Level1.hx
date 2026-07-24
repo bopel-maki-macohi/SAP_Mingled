@@ -63,9 +63,9 @@ class Level1 extends Level
 
 		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
 
-		if (unpausedTick != 0 && unpausedTick % 25 == 0)
+		if (unpausedTick != 0 && unpausedTick % 25 == 0 && Save.random.bool(30))
 		{
-			if (Save.random.bool(30)) spawnObstacle(Save.random.bool((1 / 10) * 100));
+			spawnObstacle(Save.random.bool((1 / 10) * 100));
 		}
 
 		if (Controls.justPressed('game_jump') && port.y == portRestY)
