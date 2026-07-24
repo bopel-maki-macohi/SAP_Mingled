@@ -51,10 +51,12 @@ class Level1 extends Level
 		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
 		if (unpausedTick != 0 && unpausedTick % 25 == 0)
 		{
-			if (Save.random.bool(30))
-			{
-				trace('Ammo / Obstacle spawn chance');
-			}
+			if (Save.random.bool(30)) spawnObstacle(Save.random.bool((1 / 10) * 100));
 		}
+	}
+
+	function spawnObstacle(ammo = false)
+	{
+		trace('Spawning ${(ammo) ? 'Ammo' : 'Bomb'}');
 	}
 }
