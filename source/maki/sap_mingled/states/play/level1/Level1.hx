@@ -49,14 +49,38 @@ class Level1 extends Level
 		super.unpausedUpdate(elapsed);
 
 		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
+
 		if (unpausedTick != 0 && unpausedTick % 25 == 0)
 		{
 			if (Save.random.bool(30)) spawnObstacle(Save.random.bool((1 / 10) * 100));
+		}
+
+		for (obstacle in obstacles)
+		{
+			obstacle.active = obstacle.x < FlxG.width + obstacle.width;
+			obstacle.x -= obstacle.width * 0.25;
+
+			if (obstacle.x < -obstacle.width)
+			{
+				obstacles.remove(obstacle);
+				obstacle.destroy();
+				continue;
+			}
 		}
 	}
 
 	function spawnObstacle(ammo = false)
 	{
 		trace('Spawning ${(ammo) ? 'Ammo' : 'Bomb'}');
+
+		var obstacle = new FlxSprite().makeGraphic(32, 32, (ammo) ? FlxColor.YELLOW : FlxColor.GRAY);
+		obstacle.setPosition(FlxG.width + (obstacle.width * 2), port.y);
+
+		if (Save.random.bool())
+		{
+			obstacle.y -= obstacle.height * 3;
+		}
+
+		obstacles.add(obstacle);
 	}
 }
