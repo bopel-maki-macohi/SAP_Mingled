@@ -46,5 +46,10 @@ class Level1 extends Level
 	override function unpausedUpdate(elapsed:Float)
 	{
 		super.unpausedUpdate(elapsed);
+
+		if (Save.random.bool(30))
+		{
+			trace('Ammo / Obstacle spawn chance');
+		}
 	}
 }
