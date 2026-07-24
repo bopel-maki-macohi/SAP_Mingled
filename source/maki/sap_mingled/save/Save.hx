@@ -40,7 +40,29 @@ class Save
 			save();
 		});
 
-		if (raw_data == data)
+		var same = true;
+
+		var raw_fields = Reflect.fields(raw_data);
+		var fields = Reflect.fields(data);
+
+		same = raw_fields == fields;
+
+		if (same)
+		{
+			for (_field in fields)
+			{
+				if (!same) break;
+
+				var raw_field = Reflect.field(raw_fields, _field);
+				var field = Reflect.field(fields, _field);
+
+				same = raw_field != null && raw_field == field;
+
+				if (!same) trace('$_field is different! ($field != $raw_field)');
+			}
+		}
+
+		if (same)
 		{
 			trace('Loaded Save Data:\n${data}');
 		}
@@ -140,6 +162,9 @@ class Save
 
 		data.seed ??= random.currentSeed;
 		random.currentSeed = data.seed;
+
+		checkSaveRange(5, 10, () -> if (data.controls.ui_accept_alt == '') data.controls.ui_accept_alt = 'SPACE');
+		checkSaveRange(6, 10, () -> if (data.controls.ui_back_alt == '') data.controls.ui_back_alt = 'BACKSPACE');
 
 		cleanup();
 	}
