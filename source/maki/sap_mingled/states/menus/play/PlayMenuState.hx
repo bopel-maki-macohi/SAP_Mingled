@@ -16,7 +16,7 @@ class PlayMenuState extends SAPState
 
 	var order = [
 		'level1',
-		'unknown',
+		'level2',
 		'unknown',
 		'unknown',
 		'unknown',
