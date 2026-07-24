@@ -1,11 +1,12 @@
 package maki.sap_mingled.save;
 
 import flixel.FlxG;
+import flixel.math.FlxRandom;
 import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 8;
+	public static final SAVE_VERSION:NullInt = 9;
 
 	public static var data(get, set):SaveData;
 
@@ -18,8 +19,12 @@ class Save
 		return FlxG.save.data.sap = _data;
 	}
 
+	public static var random:FlxRandom;
+
 	public static function init()
 	{
+		random = new FlxRandom();
+
 		FlxG.save.bind('SAP_Mingled', 'Maki');
 
 		final raw_data = FlxG.save.data.sap;
@@ -60,6 +65,7 @@ class Save
 			game: null,
 			ui: null,
 			controls: null,
+			seed: null,
 		}
 
 		data.game ??= {
@@ -126,6 +132,9 @@ class Save
 
 		if (data.ui.grid_skin == 'minecraft' && OptionsUtil.grid_skins.contains('minceraft')) data.ui.grid_skin = 'minceraft';
 		if (data.ui.grid_skin == 'minceraft' && OptionsUtil.grid_skins.contains('minecraft')) data.ui.grid_skin = 'minecraft';
+
+		data.seed ??= random.currentSeed;
+		random.currentSeed = data.seed;
 	}
 
 	public static function checkSaveRange(min:NullInt, max:NullInt, whenInRange:FuncVoid)
@@ -168,6 +177,7 @@ class Save
 			game: data.game,
 			ui: data.ui,
 			controls: data.controls,
+			seed: random.currentSeed,
 		}
 
 		trace('Ending Save Data:\n${data}');

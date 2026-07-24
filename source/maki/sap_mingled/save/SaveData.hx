@@ -9,4 +9,6 @@ typedef SaveData =
 	var ui:SaveUIData;
 
 	var controls:SaveControlsData;
+
+	var seed:NullInt;
 }
