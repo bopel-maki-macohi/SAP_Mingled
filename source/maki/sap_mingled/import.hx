@@ -20,6 +20,7 @@ import maki.sap_mingled.states.menus.play.*;
 import maki.sap_mingled.states.menus.title.*;
 import maki.sap_mingled.states.play.*;
 import maki.sap_mingled.states.play.level1.*;
+import maki.sap_mingled.states.play.level2.*;
 import maki.sap_mingled.util.*;
 import maki.sap_mingled.util.metadata.*;
 import maki.sap_mingled.util.typedefs.null_basic_type.*;

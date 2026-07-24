@@ -2,6 +2,7 @@ package maki.sap_mingled.states.play.level1;
 
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.util.FlxColor;
 
 /**
  * Port is running,
@@ -26,6 +27,8 @@ class Level1 extends Level
 		obstacles = new FlxTypedSpriteGroup<FlxSprite>();
 		enemy = new FlxSprite();
 		port = new FlxSprite();
+
+		port.makeGraphic(32, 32, FlxColor.PINK);
 
 		add(bullets);
 		add(obstacles);

@@ -121,6 +121,7 @@ class PlayMenuState extends SAPState
 		switch (level)
 		{
 			case 'level1': FlxG.switchState(() -> new Level1());
+			case 'level2': FlxG.switchState(() -> new Level2());
 		}
 	}
 }
