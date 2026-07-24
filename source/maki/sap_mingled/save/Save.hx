@@ -6,7 +6,7 @@ import lime.app.Application;
 
 class Save
 {
-	public static final SAVE_VERSION:NullInt = 10;
+	public static final SAVE_VERSION:NullInt = 11;
 
 	public static var data(get, set):SaveData;
 
@@ -127,10 +127,10 @@ class Save
 		data.controls.ui_right_alt ??= 'D';
 
 		data.controls.ui_accept ??= 'ENTER';
-		data.controls.ui_accept_alt ??= '';
+		data.controls.ui_accept_alt ??= 'SPACE';
 
 		data.controls.ui_back ??= 'ESCAPE';
-		data.controls.ui_back_alt ??= '';
+		data.controls.ui_back_alt ??= 'BACKSPACE';
 
 		data.controls.game_jump ??= 'SPACE';
 		data.controls.game_jump_alt ??= 'Z';
