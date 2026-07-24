@@ -28,7 +28,7 @@ class Level1 extends Level
 		enemy = new FlxSprite();
 		port = new FlxSprite();
 
-		port.makeGraphic(32, 32, FlxColor.PINK);
+		port.makeGraphic(32, 32, FlxColor.MAGENTA);
 
 		add(bullets);
 		add(obstacles);
