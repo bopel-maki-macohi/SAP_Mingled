@@ -9,8 +9,8 @@ import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 class ControlsMenuState extends SAPState
 {
 	var buttons:FlxTypedSpriteContainer<MenuButton>;
-	var controlsButtonsCam:FlxCamera;
-	var controlsButtonsCamFollow:FlxObject;
+	var buttonsCam:FlxCamera;
+	var buttonsCamFollow:FlxObject;
 
 	var order = [];
 	var entries:Map<String, FuncVoid> = [];
@@ -65,17 +65,17 @@ class ControlsMenuState extends SAPState
 			i++;
 		}
 
-		controlsButtonsCam = new FlxCamera();
-		FlxG.cameras.add(controlsButtonsCam, false);
-		controlsButtonsCam.bgColor = 0x00000000;
+		buttonsCam = new FlxCamera();
+		FlxG.cameras.add(buttonsCam, false);
+		buttonsCam.bgColor = 0x00000000;
 
-		buttons.cameras = [controlsButtonsCam];
+		buttons.cameras = [buttonsCam];
 
-		controlsButtonsCamFollow = new FlxObject(FlxG.width / 2);
-		add(controlsButtonsCamFollow);
+		buttonsCamFollow = new FlxObject(FlxG.width / 2);
+		add(buttonsCamFollow);
 
-		controlsButtonsCam.focusOn(controlsButtonsCamFollow.getPosition());
-		controlsButtonsCam.follow(controlsButtonsCamFollow, LOCKON, 0.04);
+		buttonsCam.follow(buttonsCamFollow, LOCKON, 0.04);
+		buttonsCam.focusOn(buttonsCamFollow.getPosition());
 	}
 
 	override function update(elapsed:Float)
@@ -102,7 +102,7 @@ class ControlsMenuState extends SAPState
 			button.y = (button.ID * button.size * 2);
 			button.updateSelection(selection);
 
-			controlsButtonsCamFollow.y = button.y;
+			if (selection == button.ID) buttonsCamFollow.y = button.y;
 		}
 
 		if (Controls.justPressed('ui_up')) changeSelection(-1);

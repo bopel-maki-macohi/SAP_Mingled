@@ -33,6 +33,8 @@
 
 		"menus.options.controls": "Controls...",
 
+		"menus.options.controls.ui_back": "UI Back",
+		"menus.options.controls.ui_back_alt": "UI Back (Alt)",
 		"menus.options.controls.ui_accept": "UI Accept",
 		"menus.options.controls.ui_accept_alt": "UI Accept (Alt)",
 		"menus.options.controls.ui_left": "UI Left",

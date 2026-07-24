@@ -103,7 +103,7 @@ class OptionsMenuState extends SAPState
 			button.y = (button.ID * button.size * 2);
 			button.updateSelection(selection);
 
-			buttonsCamFollow.y = button.y;
+			if (selection == button.ID) buttonsCamFollow.y = button.y;
 		}
 
 		if (Controls.justPressed('ui_up')) changeSelection(-1);
