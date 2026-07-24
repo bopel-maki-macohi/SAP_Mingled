@@ -46,6 +46,12 @@
 	</section>
 
 	<define name="SAPM_START_NO_INTRO" if="SAPM_START_PLAYMENU" />
+
+	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL1" />
+	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL2" />
+
+	<define name="SAPM_START_NO_INTRO" if="SAPM_START_PLAY" />
+
 	<define name="SAPM_START_INTRO" unless="SAPM_START_NO_INTRO"/>
 
 </project>

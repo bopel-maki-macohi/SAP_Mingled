@@ -34,6 +34,14 @@ class StartingState
 		return PlayMenuState;
 		#end
 
+		#if SAPM_START_LEVEL1
+		return Level1;
+		#end
+		
+		#if SAPM_START_LEVEL2
+		return Level2;
+		#end
+
 		return TitleState;
 	}
 }
