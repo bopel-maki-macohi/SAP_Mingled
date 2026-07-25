@@ -56,8 +56,7 @@ class Level1 extends Level
 	{
 		super.unpausedUpdate(elapsed);
 
-		port.gravity += 1;
-		port.gravity = Math.min(Math.max(port.gravity, -10), 10);
+		port.gravity += 0.8;
 
 		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
 
@@ -71,6 +70,7 @@ class Level1 extends Level
 			port.gravity = -25;
 		}
 
+		port.gravity = Math.min(Math.max(port.gravity, -7), 7);
 		port.y += port.gravity;
 
 		if (port.y >= portRestY)
