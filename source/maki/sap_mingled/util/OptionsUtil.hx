@@ -9,9 +9,9 @@ class OptionsUtil
 
 	public static function option_text(key_base:String, ?value:Any):String
 	{
-		if (value == null) return '${getLanguageKey(key_base)}';
+		if (value == null) return '${getLanguageKey({key: key_base})}';
 
-		return '${getLanguageKey(key_base)} : ${getLanguageKey('$key_base.${value}', value)}';
+		return '${getLanguageKey({key: key_base})} : ${getLanguageKey({key: '$key_base.${value}', defaultMsg: value})}';
 	}
 
 	public static function array_option<T>(current:T, values:Array<T>):T

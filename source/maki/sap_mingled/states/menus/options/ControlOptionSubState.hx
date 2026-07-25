@@ -43,11 +43,15 @@ class ControlOptionSubState extends SAPSubState
 
 		bg.cameras = [substateCam];
 
-		final langKey = '${getClassLocalePrefix(this)}.${control.toLowerCase()}';
-
 		rebindingText = new FlxText(0, 0, 0, '', 16);
-		rebindingText.text = getLanguageKey('${getClassLocalePrefix(this)}.rebinding').replace('%1', getLanguageKey(langKey))
-			.replace('%2', Reflect.field(Save.data.controls, control));
+		rebindingText.text = getClassLanguageKey({
+			cls: this,
+			key: 'rebinding',
+			tokens: [
+				getClassLanguageKey({cls: this, key: control.toLowerCase()}),
+				Reflect.field(Save.data.controls, control),
+			]
+		});
 		add(rebindingText);
 		rebindingText.screenCenter();
 		rebindingText.alpha = 0;

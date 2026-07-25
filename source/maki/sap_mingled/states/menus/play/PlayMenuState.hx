@@ -95,7 +95,7 @@ class PlayMenuState extends SAPState
 		if (Controls.justPressed('ui_right')) changeSelection(1);
 		if (Controls.justPressed('ui_accept')) selectLevel();
 
-		selectionText.text = getLanguageKey('level.${order[selection]}.title', order[selection]);
+		selectionText.text = getLanguageKey({key: 'level.${order[selection]}.title', defaultMsg: order[selection]});
 		selectionText.screenCenter();
 		selectionText.y -= selectionText.height * 2;
 	}
