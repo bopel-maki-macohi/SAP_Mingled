@@ -34,11 +34,14 @@ class ControlsMenuState extends SAPState
 
 		for (control in controls)
 		{
+			if (control.endsWith('_alt')) continue;
+
 			newentry(control, function()
 			{
 				openSubState(new ControlOptionSubState(control));
 			},
-				(entry) -> return OptionsUtil.controls_option_text(this, control, Reflect.field(Save.data.controls, control)),);
+				(entry) -> return OptionsUtil.controls_option_text(this, control, Reflect.field(Save.data.controls, control),
+					Reflect.field(Save.data.controls, '${control}_alt')),);
 		}
 	}
 

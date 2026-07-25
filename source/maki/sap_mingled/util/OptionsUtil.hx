@@ -14,11 +14,19 @@ class OptionsUtil
 		return '${getLanguageKey({cls: cls, key: '$key'})} : ${getLanguageKey({cls: cls, key: '$key.$value', defaultMsg: '$value'})}';
 	}
 
-	public static function controls_option_text(cls:Any, key:String, ?value:Any):String
+	public static function controls_option_text(cls:Any, key:String, ?mainKey:Any, ?secondaryKey:Any):String
 	{
-		if (value == null) return '${getLanguageKey({cls: cls, key: '$key'})}';
+		final main = '${getLanguageKey({cls: cls, key: '$key'})}';
+		final key_one = '${getLanguageKey({cls: cls, key: 'ui.controls.$mainKey', defaultMsg: '$mainKey'}).toUpperCase()}';
+		final key_two = '${getLanguageKey({cls: cls, key: 'ui.controls.$secondaryKey', defaultMsg: '$secondaryKey'}).toUpperCase()}';
 
-		return '${getLanguageKey({cls: cls, key: '$key'})} : ${getLanguageKey({cls: cls, key: 'ui.controls.$value', defaultMsg: '$value'}).toUpperCase()}';
+		switch ([mainKey, secondaryKey])
+		{
+			case [null, null]: return main;
+			case [_, null]: return '$main : $key_one';
+			case [null, _]: return '$main : $key_two';
+			case [_, _]: return '$main : $key_one / $key_two';
+		}
 	}
 
 	public static function array_option<T>(current:T, values:Array<T>):T
