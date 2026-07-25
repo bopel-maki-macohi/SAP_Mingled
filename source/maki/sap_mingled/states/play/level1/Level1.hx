@@ -20,8 +20,7 @@ class Level1 extends Level
 	var obstacles:FlxTypedSpriteGroup<FlxSprite>;
 	var enemy:FlxSprite;
 
-	var port:FlxSprite;
-	var portGravity:Float = 0;
+	var port:SAPSprite;
 	var portRestY:Float = 0;
 
 	override function create()
@@ -32,7 +31,7 @@ class Level1 extends Level
 		bullets = new FlxTypedSpriteGroup<FlxSprite>();
 		obstacles = new FlxTypedSpriteGroup<FlxSprite>();
 		enemy = new FlxSprite();
-		port = new FlxSprite();
+		port = new SAPSprite();
 
 		ground.makeGraphic(Math.floor(FlxG.width * 1.1), Math.floor(FlxG.height / 4), FlxColor.WHITE);
 		enemy.makeGraphic(64, 64, FlxColor.RED);
@@ -58,8 +57,8 @@ class Level1 extends Level
 	{
 		super.unpausedUpdate(elapsed);
 
-		portGravity += 1;
-		portGravity = Math.min(Math.max(portGravity, -10), 10);
+		port.gravity += 1;
+		port.gravity = Math.min(Math.max(port.gravity, -10), 10);
 
 		FlxG.watch.addQuick('unpausedTick % 25', unpausedTick % 25);
 
@@ -70,15 +69,15 @@ class Level1 extends Level
 
 		if (Controls.justPressed('game_jump') && port.y == portRestY)
 		{
-			portGravity = -25;
+			port.gravity = -25;
 		}
 
-		port.y += portGravity;
+		port.y += port.gravity;
 
 		if (port.y >= portRestY)
 		{
 			port.y = portRestY;
-			portGravity = 0;
+			port.gravity = 0;
 		}
 
 		for (obstacle in obstacles)
