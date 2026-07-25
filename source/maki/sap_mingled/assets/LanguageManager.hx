@@ -34,10 +34,10 @@ class LanguageManager
 		{
 			if (params.cls != null) params.key = '${getClassLocalePrefix(params.cls)}.${params.key}';
 
-			final _key = '${params.key}'.replace(' ', '_').toLowerCase();
+			params.key = params.key.replace(' ', '_').toLowerCase();
 
-			var field:String = Std.string(Reflect.field(locale?.keys, _key));
-			if (field != null)
+			var field:String = Std.string(Reflect.field(locale?.keys, params.key));
+			if (field != null && field != 'null')
 			{
 				if (params.tokens != null && params.tokens.length > 0)
 				{
@@ -47,6 +47,11 @@ class LanguageManager
 				return field;
 			}
 		}
+
+		if (params.defaultMsg != null) return params.defaultMsg;
+		if (params.key != null) return '[${params.key}]';
+
+		return '[???]';
 
 		if (params.defaultMsg != null && params.key == null) return params.defaultMsg;
 		else if (params.defaultMsg == null && params.key != null) return params.key;
