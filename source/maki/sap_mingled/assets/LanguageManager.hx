@@ -48,9 +48,9 @@ class LanguageManager
 			}
 		}
 
-		if (params.defaultMsg == null && params.key == null) return '[???]';
-		else if (params.defaultMsg != null && params.key == null) return params.defaultMsg;
-		else return params.key;
+		if (params.defaultMsg != null && params.key == null) return params.defaultMsg;
+		else if (params.defaultMsg == null && params.key != null) return params.key;
+		else return '[???]';
 	}
 
 	public static function getClassLocalePrefix(_cls:Any):String
