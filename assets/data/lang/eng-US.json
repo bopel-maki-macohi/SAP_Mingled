@@ -8,6 +8,18 @@
 
 		"ui.debug.display.fps": "FPS",
 		"ui.debug.display.memory": "Memory",
+
+		"ui.controls.space": "space",
+		"ui.controls.enter": "enter",
+		"ui.controls.tab": "tab",
+		"ui.controls.shift": "shift",
+		"ui.controls.control": "control",
+		"ui.controls.function": "function",
+		"ui.controls.backspace": "backspace",
+		"ui.controls.delete": "delete",
+		
+		"ui.controls.plus": "+",
+		"ui.controls.minus": "-",
 		
 		"menus.title.option.play": "Play",
 		"menus.title.option.options": "Options",
