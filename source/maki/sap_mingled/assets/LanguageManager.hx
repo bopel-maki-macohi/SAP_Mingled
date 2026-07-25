@@ -34,7 +34,7 @@ class LanguageManager
 		{
 			if (params.cls != null) params.key = '${getClassLocalePrefix(params.cls)}.${params.key}';
 
-			final _key = '${params.key}'.replace(' ', '_');
+			final _key = '${params.key}'.replace(' ', '_').toLowerCase();
 
 			var field:String = Std.string(Reflect.field(locale?.keys, _key));
 			if (field != null)
