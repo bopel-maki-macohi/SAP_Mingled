@@ -133,8 +133,8 @@ class Save
 		data.seed ??= random.currentSeed;
 		random.currentSeed = data.seed;
 
-		checkSaveRange(5, 10, () -> if (data.controls.ui_accept_alt == '') data.controls.ui_accept_alt = 'SPACE');
-		checkSaveRange(6, 10, () -> if (data.controls.ui_back_alt == '') data.controls.ui_back_alt = 'BACKSPACE');
+		checkSaveRange(5, null, () -> if (data.controls.ui_accept_alt == '') data.controls.ui_accept_alt = 'SPACE');
+		checkSaveRange(6, null, () -> if (data.controls.ui_back_alt == '') data.controls.ui_back_alt = 'BACKSPACE');
 
 		cleanup();
 	}
@@ -143,6 +143,20 @@ class Save
 	{
 		if (data == null) return;
 		if (whenInRange == null) return;
+
+		if (min == null && max == null) return;
+
+		if (max == null)
+		{
+			if (data.save_version >= min) whenInRange();
+			return;
+		}
+
+		if (min == null)
+		{
+			if (data.save_version < max) whenInRange();
+			return;
+		}
 
 		if (data.save_version >= min && data.save_version < max) whenInRange();
 	}
