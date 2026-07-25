@@ -90,12 +90,20 @@ class Level1 extends Level
 				obstacle.destroy();
 				continue;
 			}
+
+			if (obstacle.overlaps(port))
+			{
+				// trace('Touch');
+				obstacles.remove(obstacle);
+				obstacle.destroy();
+				continue;
+			}
 		}
 	}
 
 	function spawnObstacle(ammo = false)
 	{
-		trace('Spawning ${(ammo) ? 'Ammo' : 'Bomb'}');
+		// trace('Spawning ${(ammo) ? 'Ammo' : 'Bomb'}');
 
 		var obstacle = new SAPSprite().makeGraphic(32, 32, (ammo) ? FlxColor.YELLOW : FlxColor.GRAY);
 		obstacle.setPosition(FlxG.width + (obstacle.width * 2), portRestY);
