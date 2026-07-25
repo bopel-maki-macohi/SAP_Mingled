@@ -32,6 +32,7 @@
 		"menus.options.debug_display.false": "Disabled",
 
 		"menus.options.controls": "Controls...",
+		"menus.options.controls.rebinding": "Rebinding %1 (Current: %2)",
 
 		"menus.options.controls.ui_back": "UI Back",
 		"menus.options.controls.ui_back_alt": "UI Back (Alt)",

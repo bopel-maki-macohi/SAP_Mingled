@@ -45,7 +45,9 @@ class ControlOptionSubState extends SAPSubState
 
 		final langKey = '${getClassLocalePrefix(this)}.${control.toLowerCase()}';
 
-		rebindingText = new FlxText(0, 0, 0, 'Rebinding "${getLanguageKey(langKey)}" (Current: ${Reflect.field(Save.data.controls, control)})', 16);
+		rebindingText = new FlxText(0, 0, 0, '', 16);
+		rebindingText.text = getLanguageKey('${getClassLocalePrefix(this)}.rebinding').replace('%1', getLanguageKey(langKey))
+			.replace('%2', Reflect.field(Save.data.controls, control));
 		add(rebindingText);
 		rebindingText.screenCenter();
 		rebindingText.alpha = 0;
