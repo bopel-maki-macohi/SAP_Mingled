@@ -36,7 +36,7 @@ class ControlsMenuState extends SAPState
 		{
 			newentry(control, function()
 			{
-				trace(control);
+				openSubState(new ControlOptionSubState(control));
 			},
 				(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Reflect.field(Save.data.controls, control)),);
 		}
