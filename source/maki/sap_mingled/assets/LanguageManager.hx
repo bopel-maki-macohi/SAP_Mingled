@@ -39,7 +39,10 @@ class LanguageManager
 			var field:String = Std.string(Reflect.field(locale?.keys, _key));
 			if (field != null)
 			{
-				for (i => token in params.tokens) field = field.replace('%${i + 1}', token);
+				if (params.tokens != null && params.tokens.length > 0)
+				{
+					for (i => token in params.tokens) field = field.replace('%${i + 1}', token);
+				}
 
 				return field;
 			}
