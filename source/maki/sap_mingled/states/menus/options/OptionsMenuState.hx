@@ -36,10 +36,10 @@ class OptionsMenuState extends SAPState
 		newentry('Debug Display', () -> Save.data.ui.debug_display = OptionsUtil.bool_option(Save.data.ui.debug_display),
 			(entry) -> return OptionsUtil.option_text(this, entry, Save.data.ui.debug_display),);
 
-		newentry('Controls', () ->
-		{
-			FlxG.switchState(() -> new ControlsMenuState());
-		}, (entry) -> return OptionsUtil.option_text(this, entry, null),);
+		// newentry('Controls', () ->
+		// {
+		// 	FlxG.switchState(() -> new ControlsMenuState());
+		// }, (entry) -> return OptionsUtil.option_text(this, entry, null),);
 	}
 
 	var selection:Int = 0;
