@@ -1,8 +1,6 @@
 package maki.sap_mingled.states.menus.play;
 
-import flixel.FlxSprite;
-
-class LevelIcon extends FlxSprite
+class LevelIcon extends SAPSprite
 {
 	public var replaceColorShader:ReplaceColorShader;
 

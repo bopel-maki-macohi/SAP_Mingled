@@ -1,14 +1,13 @@
 package maki.sap_mingled.states.menus.options;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 
 class ControlOptionSubState extends SAPSubState
 {
-	var bg = new FlxSprite();
+	var bg = new SAPSprite();
 
 	override function create()
 	{

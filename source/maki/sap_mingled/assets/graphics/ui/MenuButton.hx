@@ -1,13 +1,12 @@
 package maki.sap_mingled.assets.graphics.ui;
 
-import flixel.FlxSprite;
 import flixel.text.FlxText;
 
 class MenuButton extends FlxText
 {
 	var arrow:SelectionArrow;
 
-	var background:FlxSprite;
+	var background:SAPSprite;
 
 	var onSelect:FuncVoid;
 
@@ -17,7 +16,7 @@ class MenuButton extends FlxText
 
 		arrow = new SelectionArrow(32);
 
-		background = new FlxSprite().makeGraphic(1, 1, 0xFF000000);
+		background = new SAPSprite().makeGraphic(1, 1, 0xFF000000);
 
 		this.ID = ID;
 		this.onSelect = onSelect;

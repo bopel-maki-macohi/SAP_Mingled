@@ -1,6 +1,7 @@
 package maki.sap_mingled.assets.graphics;
 
 import flixel.FlxSprite;
+import flixel.util.FlxColor;
 
 class SAPSprite extends FlxSprite
 {
@@ -12,4 +13,7 @@ class SAPSprite extends FlxSprite
 
 		this.y += gravity;
 	}
+
+	override function makeGraphic(width:Int, height:Int, color:FlxColor = FlxColor.WHITE, unique:Bool = false,
+			?key:String):SAPSprite return cast super.makeGraphic(width, height, color, unique, key);
 }

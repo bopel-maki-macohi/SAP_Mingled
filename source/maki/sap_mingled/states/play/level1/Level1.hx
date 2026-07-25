@@ -1,7 +1,6 @@
 package maki.sap_mingled.states.play.level1;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxColor;
 
@@ -15,10 +14,10 @@ import flixel.util.FlxColor;
  */
 class Level1 extends Level
 {
-	var ground:FlxSprite;
-	var bullets:FlxTypedSpriteGroup<FlxSprite>;
-	var obstacles:FlxTypedSpriteGroup<FlxSprite>;
-	var enemy:FlxSprite;
+	var ground:SAPSprite;
+	var bullets:FlxTypedSpriteGroup<SAPSprite>;
+	var obstacles:FlxTypedSpriteGroup<SAPSprite>;
+	var enemy:SAPSprite;
 
 	var port:SAPSprite;
 	var portRestY:Float = 0;
@@ -27,10 +26,10 @@ class Level1 extends Level
 	{
 		super.create();
 
-		ground = new FlxSprite();
-		bullets = new FlxTypedSpriteGroup<FlxSprite>();
-		obstacles = new FlxTypedSpriteGroup<FlxSprite>();
-		enemy = new FlxSprite();
+		ground = new SAPSprite();
+		bullets = new FlxTypedSpriteGroup<SAPSprite>();
+		obstacles = new FlxTypedSpriteGroup<SAPSprite>();
+		enemy = new SAPSprite();
 		port = new SAPSprite();
 
 		ground.makeGraphic(Math.floor(FlxG.width * 1.1), Math.floor(FlxG.height / 4), FlxColor.WHITE);
@@ -98,7 +97,7 @@ class Level1 extends Level
 	{
 		trace('Spawning ${(ammo) ? 'Ammo' : 'Bomb'}');
 
-		var obstacle = new FlxSprite().makeGraphic(32, 32, (ammo) ? FlxColor.YELLOW : FlxColor.GRAY);
+		var obstacle = new SAPSprite().makeGraphic(32, 32, (ammo) ? FlxColor.YELLOW : FlxColor.GRAY);
 		obstacle.setPosition(FlxG.width + (obstacle.width * 2), portRestY);
 
 		if (Save.random.bool())

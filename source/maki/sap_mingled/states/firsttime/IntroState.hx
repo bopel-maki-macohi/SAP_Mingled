@@ -1,13 +1,12 @@
 package maki.sap_mingled.states.firsttime;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
 class IntroState extends SAPState
 {
-	var cutsceneAsset = new FlxSprite();
+	var cutsceneAsset = new SAPSprite();
 
 	override function create()
 	{

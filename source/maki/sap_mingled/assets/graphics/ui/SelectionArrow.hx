@@ -1,8 +1,6 @@
 package maki.sap_mingled.assets.graphics.ui;
 
-import flixel.FlxSprite;
-
-class SelectionArrow extends FlxSprite
+class SelectionArrow extends SAPSprite
 {
 	public var selected(default, set):Bool;
 

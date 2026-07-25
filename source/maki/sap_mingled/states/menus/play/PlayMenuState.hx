@@ -3,7 +3,7 @@ package maki.sap_mingled.states.menus.play;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
+import flixel.group.SAPSpriteContainer.FlxTypedSpriteContainer;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 

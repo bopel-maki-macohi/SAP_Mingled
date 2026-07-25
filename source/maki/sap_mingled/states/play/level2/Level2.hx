@@ -1,6 +1,5 @@
 package maki.sap_mingled.states.play.level2;
 
-import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxColor;
 
@@ -13,19 +12,19 @@ import flixel.util.FlxColor;
  */
 class Level2 extends Level
 {
-	var zaps:FlxTypedSpriteGroup<FlxSprite>;
-	var protection:FlxTypedSpriteGroup<FlxSprite>;
-	var enemy:FlxSprite;
-	var sinco:FlxSprite;
+	var zaps:FlxTypedSpriteGroup<SAPSprite>;
+	var protection:FlxTypedSpriteGroup<SAPSprite>;
+	var enemy:SAPSprite;
+	var sinco:SAPSprite;
 
 	override function create()
 	{
 		super.create();
 
-		zaps = new FlxTypedSpriteGroup<FlxSprite>();
-		protection = new FlxTypedSpriteGroup<FlxSprite>();
-		enemy = new FlxSprite();
-		sinco = new FlxSprite();
+		zaps = new FlxTypedSpriteGroup<SAPSprite>();
+		protection = new FlxTypedSpriteGroup<SAPSprite>();
+		enemy = new SAPSprite();
+		sinco = new SAPSprite();
 
 		sinco.makeGraphic(32, 32, FlxColor.LIME);
 
