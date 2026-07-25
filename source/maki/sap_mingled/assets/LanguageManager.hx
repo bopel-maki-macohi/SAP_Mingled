@@ -28,24 +28,18 @@ class LanguageManager
 		}
 	}
 
-	public static function getClassLanguageKey(params:ClassLanguageKeyParams):String
-	{
-		var classLocalePrefix = getClassLocalePrefix(params.cls);
-
-		params.key = '${classLocalePrefix}${params.key}';
-		return getLanguageKey(params);
-	}
-
 	public static function getLanguageKey(params:LanguageKeyParams):String
 	{
 		if (locale != null && params.key != null)
 		{
+			if (params.cls != null) params.key = '${getClassLocalePrefix(params.cls)}.${params.key}';
+
 			final _key = '${params.key}'.replace(' ', '_');
 
-			var field = Reflect.field(locale?.keys, _key);
+			var field:String = Std.string(Reflect.field(locale?.keys, _key));
 			if (field != null)
 			{
-				for (i => token in params.tokens) {}
+				for (i => token in params.tokens) field = field.replace('%${i + 1}', token);
 
 				return field;
 			}

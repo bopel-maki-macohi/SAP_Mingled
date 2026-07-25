@@ -67,7 +67,7 @@ class TitleState extends SAPState
 			if (entry == null) continue;
 			if (entry?.trim()?.length < 1) continue;
 
-			var entry_button = new MenuButton(getClassLanguageKey({cls: this, key: 'option.${entry.toLowerCase()}'}), i, entries.get(entry));
+			var entry_button = new MenuButton(getLanguageKey({cls: this, key: 'option.${entry.toLowerCase()}'}), i, entries.get(entry));
 			buttons.add(entry_button);
 
 			i++;
