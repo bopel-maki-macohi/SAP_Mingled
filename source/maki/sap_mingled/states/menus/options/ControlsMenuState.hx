@@ -38,7 +38,7 @@ class ControlsMenuState extends SAPState
 			{
 				openSubState(new ControlOptionSubState(control));
 			},
-				(entry) -> return OptionsUtil.option_text(this, entry, Reflect.field(Save.data.controls, control)),);
+				(entry) -> return OptionsUtil.option_text(this, entry, Reflect.field(Save.data.controls, entry)),);
 		}
 	}
 
