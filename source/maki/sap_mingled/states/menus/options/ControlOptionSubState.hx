@@ -26,6 +26,7 @@ class ControlOptionSubState extends SAPSubState
 		super.create();
 
 		FlxG.cameras.add(substateCam, false);
+		substateCam.bgColor = FlxColor.TRANSPARENT;
 
 		bg.makeGraphic(Math.round(FlxG.width * 1.1), Math.round(FlxG.height * 1.1), FlxColor.BLACK);
 		bg.alpha = 0;
