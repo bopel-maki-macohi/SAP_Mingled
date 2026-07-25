@@ -3,7 +3,7 @@ package maki.sap_mingled.states.menus.options;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.group.SAPSpriteContainer.FlxTypedSpriteContainer;
+import flixel.group.FlxSpriteContainer.FlxTypedSpriteContainer;
 
 @localePrefix('menus.options.controls')
 class ControlsMenuState extends SAPState
