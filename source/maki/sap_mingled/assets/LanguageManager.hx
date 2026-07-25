@@ -28,19 +28,12 @@ class LanguageManager
 		}
 	}
 
-	public static function getClassLanguageKey(_cls:Any, _key:Dynamic, ?defaultStr:String):String
+	public static function getClassLanguageKey(params:ClassLanguageKeyParams):String
 	{
-		var classLocalePrefix = getClassLocalePrefix(_cls);
+		var classLocalePrefix = getClassLocalePrefix(params.cls);
 
-		if (_key == null) return getLanguageKey({
-			key: '$classLocalePrefix.$_key',
-			defaultMsg: defaultStr,
-		});
-
-		return getLanguageKey({
-			key: '$classLocalePrefix.$_key',
-			defaultMsg: defaultStr,
-		});
+		params.key = '${classLocalePrefix}${params.key}';
+		return getLanguageKey(params);
 	}
 
 	public static function getLanguageKey(params:LanguageKeyParams):String
@@ -48,8 +41,14 @@ class LanguageManager
 		if (locale != null && params.key != null)
 		{
 			final _key = '${params.key}'.replace(' ', '_');
+
 			var field = Reflect.field(locale?.keys, _key);
-			if (field != null) return field;
+			if (field != null)
+			{
+				for (i => token in params.tokens) {}
+
+				return field;
+			}
 		}
 
 		if (params.defaultMsg == null && params.key == null) return '[???]';
