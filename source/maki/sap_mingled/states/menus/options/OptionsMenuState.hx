@@ -31,16 +31,15 @@ class OptionsMenuState extends SAPState
 
 		newentry('Grid Skin',
 			() -> GridBG.instance?.setSkin(Save.data.ui.grid_skin = OptionsUtil.array_option(Save.data.ui.grid_skin, OptionsUtil.grid_skins)),
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Save.data.ui.grid_skin),);
+			(entry) -> return OptionsUtil.option_text(this, entry, Save.data.ui.grid_skin),);
 
 		newentry('Debug Display', () -> Save.data.ui.debug_display = OptionsUtil.bool_option(Save.data.ui.debug_display),
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', Save.data.ui.debug_display),);
+			(entry) -> return OptionsUtil.option_text(this, entry, Save.data.ui.debug_display),);
 
 		newentry('Controls', () ->
 		{
 			FlxG.switchState(() -> new ControlsMenuState());
-		},
-			(entry) -> return OptionsUtil.option_text('${getClassLocalePrefix(this)}.${entry.toLowerCase()}', null),);
+		}, (entry) -> return OptionsUtil.option_text(this, entry, null),);
 	}
 
 	var selection:Int = 0;

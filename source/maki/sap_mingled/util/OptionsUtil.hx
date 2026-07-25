@@ -7,11 +7,11 @@ class OptionsUtil
 {
 	public static var grid_skins:Array<String> = OptionMacro.buildArray('grid_skins');
 
-	public static function option_text(key_base:String, ?value:Any):String
+	public static function option_text(cls:Any, key:String, ?value:Any):String
 	{
-		if (value == null) return '${getLanguageKey({key: key_base})}';
+		if (value == null) return '${getLanguageKey({cls: cls, key: key})}';
 
-		return '${getLanguageKey({key: key_base})} : ${getLanguageKey({key: '$key_base.${value}', defaultMsg: value})}';
+		return '${getLanguageKey({cls: cls, key: key})} : ${getLanguageKey({cls: cls, key: '$key.${value}', defaultMsg: value})}';
 	}
 
 	public static function array_option<T>(current:T, values:Array<T>):T
