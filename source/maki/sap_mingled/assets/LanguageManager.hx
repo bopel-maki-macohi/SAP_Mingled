@@ -32,23 +32,29 @@ class LanguageManager
 	{
 		var classLocalePrefix = getClassLocalePrefix(_cls);
 
-		if (_key == null) return getLanguageKey('$_key', defaultStr);
+		if (_key == null) return getLanguageKey({
+			key: '$classLocalePrefix.$_key',
+			defaultMsg: defaultStr,
+		});
 
-		return getLanguageKey('$classLocalePrefix.$_key', defaultStr);
+		return getLanguageKey({
+			key: '$classLocalePrefix.$_key',
+			defaultMsg: defaultStr,
+		});
 	}
 
-	public static function getLanguageKey(key:Dynamic, ?defaultStr:Dynamic):String
+	public static function getLanguageKey(params:LanguageKeyParams):String
 	{
-		if (locale != null && key != null)
+		if (locale != null && params.key != null)
 		{
-			final _key = '$key'.replace(' ', '_');
-
+			final _key = '${params.key}'.replace(' ', '_');
 			var field = Reflect.field(locale?.keys, _key);
-
 			if (field != null) return field;
 		}
 
-		return '${defaultStr ?? '[$key]'}';
+		if (params.defaultMsg == null && params.key == null) return '[???]';
+		else if (params.defaultMsg != null && params.key == null) return params.defaultMsg;
+		else return params.key;
 	}
 
 	public static function getClassLocalePrefix(_cls:Any):String
