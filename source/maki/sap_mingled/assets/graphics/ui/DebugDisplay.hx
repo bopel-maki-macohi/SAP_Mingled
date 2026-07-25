@@ -57,9 +57,15 @@ class DebugDisplay extends TextField
 				final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
 
 				var lines = [
-					'${getClassLanguageKey(this, 'fps')}: ${currentFPS}',
+					'${getClassLanguageKey({
+						cls: this,
+						key: 'fps',
+					})}: ${currentFPS}',
 					#if SAPM_MEMORY_COUNTER
-					'${getClassLanguageKey(this, 'memory')}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB',
+					'${getClassLanguageKey({
+						cls: this,
+						key: 'memory',
+					})}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB',
 					#end
 				];
 
