@@ -13,6 +13,13 @@ class OptionsUtil
 
 		return '${getLanguageKey({cls: cls, key: '$key'})} : ${getLanguageKey({cls: cls, key: '$key.$value', defaultMsg: '$value'})}';
 	}
+	
+	public static function controls_option_text(cls:Any, key:String, ?value:Any):String
+	{
+		if (value == null) return '${getLanguageKey({cls: cls, key: '$key'})}';
+
+		return '${getLanguageKey({cls: cls, key: '$key'})} : ${getLanguageKey({cls: cls, key: 'controls.$value', defaultMsg: '$value'})}';
+	}
 
 	public static function array_option<T>(current:T, values:Array<T>):T
 	{
