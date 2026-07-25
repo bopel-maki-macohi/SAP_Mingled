@@ -70,7 +70,7 @@ class Level1 extends Level
 			port.gravity = -25;
 		}
 
-		port.gravity = Math.min(Math.max(port.gravity, -7), 7);
+		port.gravity = Math.min(Math.max(port.gravity, -8), 8);
 		port.y += port.gravity;
 
 		if (port.y >= portRestY)
