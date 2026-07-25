@@ -28,6 +28,15 @@ class LanguageManager
 		}
 	}
 
+	public static function getClassLanguageKey(_cls:Any, _key:Dynamic, ?defaultStr:String):String
+	{
+		var classLocalePrefix = getClassLocalePrefix(_cls);
+
+		if (_key == null) return getLanguageKey('$_key', defaultStr);
+
+		return getLanguageKey('$classLocalePrefix.$_key', defaultStr);
+	}
+
 	public static function getLanguageKey(key:Dynamic, ?defaultStr:Dynamic):String
 	{
 		if (locale != null && key != null)
