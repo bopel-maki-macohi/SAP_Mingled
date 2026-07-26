@@ -53,6 +53,9 @@ class Level1 extends Level
 
 		enemy.y -= enemy.height * 2;
 		port.y = portRestY = ground.y - port.height;
+
+		enemy.health = 10;
+		port.health = 5;
 	}
 
 	override function unpausedUpdate(elapsed:Float)
