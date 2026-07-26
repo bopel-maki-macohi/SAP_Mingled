@@ -28,13 +28,19 @@ class SAPAudioManager
 		return !FlxG.sound?.music?.playing ?? false;
 	}
 
-	public static var currentTrack:String = '';
+	public static var currentTrack:String = null;
 
 	public static function playMusic(params:PlayMusicParams):FlxSound
 	{
 		if (params == null) return null;
 
-		var music = FlxG.sound.playMusic(params.path, null, 1.0, params?.looped == true, params.on_complete);
+		if (currentTrack == params.path) return FlxG.sound.music;
+
+		var music = FlxG.sound.playMusic(params.path, null, 1.0, params?.looped == true, function()
+		{
+			if (params.on_complete != null) params.on_complete();
+			currentTrack = null;
+		});
 
 		final fadeIn = params.fade_in && params.fade_in_duration > 0.0;
 		final fadeOut = params.fade_out && params.fade_out_duration > 0.0;
@@ -53,6 +59,7 @@ class SAPAudioManager
 		{
 			music.fadeOut(params.fade_out_duration, 0, function(t)
 			{
+				if (params?.fade_out_on_complete != null) params.fade_out_on_complete();
 				playTheMusic();
 			});
 		}
@@ -70,7 +77,20 @@ class SAPAudioManager
 
 		final fadeOut = params?.fade_out && params?.fade_out_duration > 0.0;
 
-		if (fadeOut) return music.fadeOut(params?.fade_out_duration);
-		else return music.stop();
+		if (fadeOut)
+		{
+			music.fadeOut(params?.fade_out_duration, 0, function(t)
+			{
+				currentTrack = null;
+				if (params?.fade_out_on_complete != null) params.fade_out_on_complete();
+			});
+		}
+		else
+		{
+			currentTrack = null;
+			music.stop();
+		}
+
+		return music;
 	}
 }
