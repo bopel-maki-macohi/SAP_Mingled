@@ -6,7 +6,20 @@ class StartingState
 {
 	public static function get():InitialState
 	{
-		#if SAPM_START_INTRO
+		if (DefineMacro.defined('SAPM_START_INTRO')) return getIntroState();
+
+		if (DefineMacro.defined('SAPM_START_PLAYMENU')) return PlayMenuState;
+		if (DefineMacro.defined('SAPM_START_OPTIONSMENU')) return OptionsMenuState;
+		if (DefineMacro.defined('SAPM_START_CONTROLSMENU')) return ControlsMenuState;
+		
+		if (DefineMacro.defined('SAPM_START_LEVEL1')) return Level1;
+		if (DefineMacro.defined('SAPM_START_LEVEL2')) return Level2;
+
+		return TitleState;
+	}
+
+	public static function getIntroState():InitialState
+	{
 		/**
 		 * 	Save this for when theres
 		 * 	something worth warning people about.
@@ -28,28 +41,7 @@ class StartingState
 
 			return IntroState;
 		}
-		#end
 
-		#if SAPM_START_PLAYMENU
-		return PlayMenuState;
-		#end
-
-		#if SAPM_START_OPTIONSMENU
-		return OptionsMenuState;
-		#end
-
-		#if SAPM_START_CONTROLSMENU
-		return ControlsMenuState;
-		#end
-
-		#if SAPM_START_LEVEL1
-		return Level1;
-		#end
-
-		#if SAPM_START_LEVEL2
-		return Level2;
-		#end
-
-		return TitleState;
+		return null;
 	}
 }

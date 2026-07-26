@@ -61,13 +61,15 @@ class DebugDisplay extends TextField
 						cls: this,
 						key: 'fps',
 					})}: ${currentFPS}',
-					#if SAPM_MEMORY_COUNTER
-					'${getLanguageKey({
+
+					(DefineMacro.defined('SAPM_MEMORY_COUNTER'))
+					? '${getLanguageKey({
 						cls: this,
 						key: 'memory',
-					})}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB',
-					#end
+					})}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB' : null
 				];
+
+				for (line in lines) if (line == null || line.trim().length < 1) lines.remove(line);
 
 				var longest = -1;
 

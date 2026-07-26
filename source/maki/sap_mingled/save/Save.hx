@@ -29,11 +29,8 @@ class Save
 
 		final raw_data:Dynamic = FlxG.save.data.sap;
 
-		#if SAPM_SAVE_CLEAR
-		clear();
-		#else
-		load();
-		#end
+		if (DefineMacro.defined('SAPM_SAVE_CLEAR')) clear();
+		else load();
 
 		Application.current.onExit.add(function(l)
 		{
@@ -87,7 +84,7 @@ class Save
 		};
 
 		data.ui.grid_skin ??= OptionsUtil.grid_skins[0];
-		data.ui.debug_display ??= #if debug true #else false #end;
+		data.ui.debug_display ??= DefineMacro.defined('debug');
 
 		data.controls ??= {
 			ui_up: null,
