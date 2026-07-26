@@ -26,6 +26,13 @@
       "version": null
     },
     {
+      "name": "imgui-hx",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/jeremyfa/imgui-hx"
+    },
+    {
       "name": "lime",
       "type": "haxelib",
       "version": "8.3.2"

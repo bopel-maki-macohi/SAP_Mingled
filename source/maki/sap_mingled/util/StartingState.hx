@@ -30,6 +30,10 @@ class StartingState
 		}
 		#end
 
+		#if SAPM_START_DIMGUI
+		return ImGuiTestState;
+		#end
+
 		#if SAPM_START_PLAYMENU
 		return PlayMenuState;
 		#end

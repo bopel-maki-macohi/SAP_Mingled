@@ -23,6 +23,7 @@
 
 	<haxelib name="flixel" />
 	<haxelib name="flixel-addons" />
+	<haxelib name="imgui-hx" />
 
 	<haxedef name="FLX_HEALTH" />
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
@@ -42,6 +43,7 @@
 
 	<define name="SAPM_START_MENU" if="SAPM_START_PLAYMENU || SAPM_START_OPTIONSMENU || SAPM_START_CONTROLSMENU" />
 	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL1 || SAPM_START_LEVEL2" />
+	<define name="SAPM_START_DEBUGMENU" if="SAPM_START_DIMGUI" />
 
 	<define name="SAPM_START_NO_INTRO" if="SAPM_START_MENU || SAPM_START_PLAY" />
 	<define name="SAPM_START_INTRO" unless="SAPM_START_NO_INTRO"/>
