@@ -24,7 +24,7 @@
 	<haxelib name="flixel" />
 	<haxelib name="flixel-addons" />
 
-	<haxelib name="imgui-hx" if="cpp || js" />
+	<haxelib name="imgui-hx" if="cpp || js || hl" />
 
 	<echo value="IMGUI UNSUPPORTED" unless="imgui-hx"/>
 	<echo value="IMGUI SUPPORTED" if="imgui-hx"/>
