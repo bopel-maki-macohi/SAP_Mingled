@@ -57,15 +57,6 @@ class Level1 extends Level
 		port.health = 5;
 	}
 
-	override function onGameResized(width:Int, height:Int)
-	{
-		super.onGameResized(width, height);
-
-		ground.makeGraphic(Math.floor(width * 1.1), 120, FlxColor.WHITE);
-		ground.screenCenter();
-		ground.y = FlxG.height - ground.height;
-	}
-
 	override function pausedUpdate(elapsed:Float)
 	{
 		super.pausedUpdate(elapsed);
