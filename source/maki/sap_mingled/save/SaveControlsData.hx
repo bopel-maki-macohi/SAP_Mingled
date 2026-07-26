@@ -22,4 +22,7 @@ typedef SaveControlsData =
 
 	var game_jump:String;
 	var game_jump_alt:String;
+
+	var game_pause:String;
+	var game_pause_alt:String;
 }

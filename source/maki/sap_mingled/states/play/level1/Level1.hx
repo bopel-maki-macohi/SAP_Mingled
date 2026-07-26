@@ -58,9 +58,18 @@ class Level1 extends Level
 		port.health = 5;
 	}
 
+	override function pausedUpdate(elapsed:Float)
+	{
+		super.pausedUpdate(elapsed);
+
+		port.gravityEnabled = false;
+	}
+
 	override function unpausedUpdate(elapsed:Float)
 	{
 		super.unpausedUpdate(elapsed);
+
+		port.gravityEnabled = true;
 
 		port.gravity += 0.8;
 
