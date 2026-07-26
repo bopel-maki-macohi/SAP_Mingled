@@ -34,16 +34,15 @@ class Level1 extends Level
 		enemy = new SAPSprite();
 		port = new SAPSprite();
 
-		ground.makeGraphic(Math.floor(FlxG.width * 1.1), Math.floor(FlxG.height / 4), FlxColor.WHITE);
+		ground.makeGraphic(Math.floor(FlxG.width * 1.1), 120, FlxColor.WHITE);
 		enemy.makeGraphic(64, 64, FlxColor.RED);
 		port.makeGraphic(32, 32, FlxColor.MAGENTA);
 
-		add(ground);
-		add(bullets);
-		add(bombs);
-		add(ammo);
-		add(enemy);
-		add(port);
+		for (basic in [ground, bullets, bombs, ammo, enemy, port])
+		{
+			add(basic);
+			basic.cameras = [gameCam];
+		}
 
 		ground.screenCenter();
 		ground.y = FlxG.height - ground.height;
@@ -56,6 +55,15 @@ class Level1 extends Level
 
 		enemy.health = 10;
 		port.health = 5;
+	}
+
+	override function onGameResized(width:Int, height:Int)
+	{
+		super.onGameResized(width, height);
+
+		ground.makeGraphic(Math.floor(width * 1.1), 120, FlxColor.WHITE);
+		ground.screenCenter();
+		ground.y = FlxG.height - ground.height;
 	}
 
 	override function pausedUpdate(elapsed:Float)

@@ -5,6 +5,15 @@ import flixel.util.FlxTimer;
 
 class SAPState extends FlxState
 {
+	override public function new()
+	{
+		super();
+
+		Main.onGameResized.add(onGameResized);
+	}
+
+	function onGameResized(width:Int, height:Int) {}
+
 	var outroDelay:NullFloat;
 
 	override function startOutro(onOutroComplete:() -> Void)

@@ -16,6 +16,17 @@ class Level extends SAPState
 		SAPAudioManager.stopMusic();
 	}
 
+	public var gameCam:FlxCamera;
+
+	override function create()
+	{
+		super.create();
+
+		gameCam = new FlxCamera();
+		FlxG.cameras.add(gameCam, false);
+		gameCam.bgColor = FlxColor.TRANSPARENT;
+	}
+
 	public var paused(default, null):Bool = false;
 
 	public var pausedTick:Int = 0;

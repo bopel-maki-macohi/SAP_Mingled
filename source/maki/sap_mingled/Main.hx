@@ -2,6 +2,7 @@ package maki.sap_mingled;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.system.scaleModes.*;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import lime.app.Application;
 import lime.utils.Log;
@@ -9,13 +10,14 @@ import openfl.events.Event;
 
 class Main extends FlxGame
 {
+	public static final gameMeta = ClassUtil.getMetadata(Constants.GAME_INFO);
+
 	public function new()
 	{
 		Save.init();
 
 		LanguageManager.init();
 
-		var gameMeta = ClassUtil.getMetadata(Constants.GAME_INFO);
 		super(gameMeta.dimensions[0], gameMeta.dimensions[1], StartingState.get(), gameMeta.framerate[0], gameMeta.framerate[0], !gameMeta.splash[0], false);
 	}
 
@@ -32,6 +34,8 @@ class Main extends FlxGame
 		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);
 
 		super.create(_);
+
+		// FlxG.scaleMode = new FixedScaleMode();
 
 		FlxG.stage?.addChild(debugDisplay);
 	}
