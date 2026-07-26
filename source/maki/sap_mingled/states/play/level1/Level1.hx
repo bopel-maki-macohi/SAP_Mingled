@@ -16,7 +16,8 @@ class Level1 extends Level
 {
 	var ground:SAPSprite;
 	var bullets:FlxTypedSpriteGroup<SAPSprite>;
-	var obstacles:FlxTypedSpriteGroup<SAPSprite>;
+	var bombs:FlxTypedSpriteGroup<SAPSprite>;
+	var ammo:FlxTypedSpriteGroup<SAPSprite>;
 	var enemy:SAPSprite;
 
 	var port:SAPSprite;
@@ -28,7 +29,8 @@ class Level1 extends Level
 
 		ground = new SAPSprite();
 		bullets = new FlxTypedSpriteGroup<SAPSprite>();
-		obstacles = new FlxTypedSpriteGroup<SAPSprite>();
+		bombs = new FlxTypedSpriteGroup<SAPSprite>();
+		ammo = new FlxTypedSpriteGroup<SAPSprite>();
 		enemy = new SAPSprite();
 		port = new SAPSprite();
 
@@ -38,7 +40,8 @@ class Level1 extends Level
 
 		add(ground);
 		add(bullets);
-		add(obstacles);
+		add(bombs);
+		add(ammo);
 		add(enemy);
 		add(port);
 
@@ -79,24 +82,33 @@ class Level1 extends Level
 			port.gravity = 0;
 		}
 
-		for (obstacle in obstacles)
+		for (i => obstacles in [bombs, ammo])
 		{
-			obstacle.active = obstacle.x < FlxG.width + obstacle.width;
-			obstacle.x -= obstacle.width * 0.25;
+			var bomb = i == 0;
 
-			if (obstacle.x < -obstacle.width)
+			for (obstacle in obstacles)
 			{
-				obstacles.remove(obstacle);
-				obstacle.destroy();
-				continue;
-			}
+				obstacle.active = obstacle.x < FlxG.width + obstacle.width;
+				obstacle.x -= obstacle.width * 0.25;
 
-			if (obstacle.overlaps(port))
-			{
-				// trace('Touch');
-				obstacles.remove(obstacle);
-				obstacle.destroy();
-				continue;
+				if (obstacle.x < -obstacle.width)
+				{
+					obstacles.remove(obstacle);
+					obstacle.destroy();
+					continue;
+				}
+
+				if (obstacle.overlaps(port))
+				{
+					// trace('Touch');
+					obstacles.remove(obstacle);
+					obstacle.destroy();
+
+					if (bomb) {}
+					else {}
+
+					continue;
+				}
 			}
 		}
 	}
@@ -113,6 +125,12 @@ class Level1 extends Level
 			obstacle.y -= obstacle.height * 3;
 		}
 
-		obstacles.add(obstacle);
+		if (ammo)
+		{
+			this.ammo.add(obstacle);
+			return;
+		}
+
+		bombs.add(obstacle);
 	}
 }
