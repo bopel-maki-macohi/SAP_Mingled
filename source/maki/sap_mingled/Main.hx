@@ -2,7 +2,6 @@ package maki.sap_mingled;
 
 import flixel.FlxG;
 import flixel.FlxGame;
-import flixel.system.scaleModes.*;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import lime.app.Application;
 import lime.utils.Log;
