@@ -23,7 +23,11 @@
 
 	<haxelib name="flixel" />
 	<haxelib name="flixel-addons" />
-	<haxelib name="imgui-hx" />
+
+	<haxelib name="imgui-hx" if="cpp || js" />
+
+	<echo value="IMGUI UNSUPPORTED" unless="imgui-hx"/>
+	<echo value="IMGUI SUPPORTED" if="imgui-hx"/>
 
 	<haxedef name="FLX_HEALTH" />
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
