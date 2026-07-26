@@ -2,9 +2,12 @@ package maki.sap_mingled;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.math.FlxPoint;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import lime.app.Application;
 import lime.utils.Log;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
 import openfl.events.Event;
 
 class Main extends FlxGame
@@ -23,22 +26,23 @@ class Main extends FlxGame
 
 	public static var debugDisplay:DebugDisplay;
 
+	public static var borders:Bitmap;
+	static var bordersOGDimensions:FlxPoint;
+
 	override function create(_:Event)
 	{
 		Log.level = NONE;
+		onGameResized = new FlxTypedSignal<Int->Int->Void>();
+		Application.current.window.title = Constants.GAME_TITLE;
+
+		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);
+		borders = new Bitmap(BitmapData.fromFile(get_path_game('borders')),);
+		bordersOGDimensions = FlxPoint.weak(borders.width, borders.height);
 
 		super.create(_);
 
-		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);
 		FlxG.stage?.addChild(debugDisplay);
-
-		// trace(LanguageManager.getClassLocalePrefix(this, false));
-		// trace(LanguageManager.getClassLocalePrefix(DebugDisplay, false));
-
-		Application.current.window.title = Constants.GAME_TITLE;
-
-		onGameResized = new FlxTypedSignal<Int->Int->Void>();
-		FlxG.signals.gameResized.add(gameResized);
+		FlxG.stage?.addChildAt(borders, 0);
 	}
 
 	override function step()
@@ -63,8 +67,16 @@ class Main extends FlxGame
 
 	public static var onGameResized:FlxTypedSignal<Int->Int->Void>;
 
-	function gameResized(width:Int, height:Int)
+	override function resizeGame(width:Int, height:Int)
 	{
-		trace('${width}x${height}');
+		super.resizeGame(width, height);
+
+		borders.scaleY = borders.scaleX = width / bordersOGDimensions.x;
+		// borders.scaleX = borders.scaleY = height / bordersOGDimensions.y;
+
+		borders.x = (width - borders.width) / 2;
+		borders.y = (height - borders.height) / 2;
+
+		onGameResized.dispatch(width, height);
 	}
 }
