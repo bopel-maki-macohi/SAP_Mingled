@@ -2,6 +2,7 @@ package maki.sap_mingled;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.util.FlxSignal.FlxTypedSignal;
 import lime.app.Application;
 import lime.utils.Log;
 import openfl.events.Event;
@@ -36,7 +37,8 @@ class Main extends FlxGame
 
 		Application.current.window.title = Constants.GAME_TITLE;
 
-		FlxG.signals.gameResized.add(onGameResized);
+		onGameResized = new FlxTypedSignal<Int->Int->Void>();
+		FlxG.signals.gameResized.add(gameResized);
 	}
 
 	override function step()
@@ -59,7 +61,9 @@ class Main extends FlxGame
 		super.draw();
 	}
 
-	function onGameResized(width:Int, height:Int)
+	public static var onGameResized:FlxTypedSignal<Int->Int->Void>;
+
+	function gameResized(width:Int, height:Int)
 	{
 		trace('${width}x${height}');
 	}
