@@ -10,6 +10,8 @@ import maki.sap_mingled.data.*;
 import maki.sap_mingled.data.file.*;
 import maki.sap_mingled.data.file.lang.*;
 import maki.sap_mingled.data.params.*;
+import maki.sap_mingled.data.params.audiomanager.*;
+import maki.sap_mingled.data.params.options.*;
 import maki.sap_mingled.save.*;
 import maki.sap_mingled.states.*;
 import maki.sap_mingled.states.backend.*;

@@ -1,4 +1,4 @@
-package maki.sap_mingled.data.params;
+package maki.sap_mingled.data.params.options;
 
 typedef IntOptionParams =
 {

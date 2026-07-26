@@ -4,6 +4,14 @@ import flixel.FlxG;
 
 class Level extends SAPState
 {
+	override function new()
+	{
+		super();
+
+		SAPAudioManager.stopMusic();
+	}
+
+
 	public var paused(default, null):Bool = false;
 
 	public var pausedTick:Int = 0;

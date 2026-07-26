@@ -1,6 +1,6 @@
-package maki.sap_mingled.data.params;
+package maki.sap_mingled.data.params.audiomanager;
 
-typedef PlaySoundParam =
+typedef PlaySoundParams =
 {
 	var path:String;
 

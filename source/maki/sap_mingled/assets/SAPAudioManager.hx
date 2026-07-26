@@ -5,7 +5,7 @@ import flixel.sound.FlxSound;
 
 class SAPAudioManager
 {
-	public static function playSound(params:PlaySoundParam):FlxSound
+	public static function playSound(params:PlaySoundParams):FlxSound
 	{
 		if (params == null) return null;
 
@@ -21,7 +21,7 @@ class SAPAudioManager
 		return sound;
 	}
 
-	public static var canPlayMusic(get,never):Bool;
+	public static var canPlayMusic(get, never):Bool;
 
 	static function get_canPlayMusic():Bool
 	{
@@ -59,5 +59,18 @@ class SAPAudioManager
 		else playTheMusic();
 
 		return music;
+	}
+
+	public static function stopMusic(?params:StopMusicParams):FlxSound
+	{
+		var music = FlxG.sound.music;
+
+		if (music == null) return null;
+		if (!music.playing) return null;
+
+		final fadeOut = params?.fade_out && params?.fade_out_duration > 0.0;
+
+		if (fadeOut) return music.fadeOut(params?.fade_out_duration);
+		else return music.stop();
 	}
 }
