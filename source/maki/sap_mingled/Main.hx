@@ -35,6 +35,8 @@ class Main extends FlxGame
 		// trace(LanguageManager.getClassLocalePrefix(DebugDisplay, false));
 
 		Application.current.window.title = Constants.GAME_TITLE;
+
+		FlxG.signals.gameResized.add(onGameResized);
 	}
 
 	override function step()
@@ -55,5 +57,10 @@ class Main extends FlxGame
 	override function draw()
 	{
 		super.draw();
+	}
+
+	function onGameResized(width:Int, height:Int)
+	{
+		trace('${width}x${height}');
 	}
 }
