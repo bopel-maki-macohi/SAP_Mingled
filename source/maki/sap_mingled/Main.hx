@@ -29,7 +29,7 @@ class Main extends FlxGame
 		super.create(_);
 
 		debugDisplay = new DebugDisplay(4, 4, 0xFFFFFFFF);
-		addChild(debugDisplay);
+		FlxG.stage?.addChild(debugDisplay);
 
 		// trace(LanguageManager.getClassLocalePrefix(this, false));
 		// trace(LanguageManager.getClassLocalePrefix(DebugDisplay, false));
