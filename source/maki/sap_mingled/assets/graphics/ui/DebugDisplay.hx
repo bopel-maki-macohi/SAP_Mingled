@@ -10,9 +10,6 @@ import openfl.text.TextFormat;
 @localePrefix('ui.debug.display')
 class DebugDisplay extends TextField
 {
-	/**
-		The current frame rate, expressed using frames-per-second
-	**/
 	public var currentFPS(default, null):Int;
 
 	@:noCompletion private var cacheCount:Int;
