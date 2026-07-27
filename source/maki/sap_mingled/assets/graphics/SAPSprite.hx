@@ -69,21 +69,60 @@ class SAPSprite extends FlxSprite
 		return this;
 	}
 
+	public var forceGravityRegion:Bool = false;
+
+	public function enableForcedGravityRegion():SAPSprite
+	{
+		forceGravityRegion = true;
+		return this;
+	}
+
+	public function disableForcedGravityRegion():SAPSprite
+	{
+		forceGravityRegion = false;
+		return this;
+	}
+
+	public var withinGravityRegion(get, null):Bool;
+
+	function get_withinGravityRegion():Bool
+	{
+		return this.x >= gravityRegion.x
+			&& this.x <= gravityRegion.width
+			&& this.y >= gravityRegion.y
+			&& this.y <= gravityRegion.height;
+	}
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
 		if (gravityEnabled)
 		{
-			gravity = Math.min(Math.max(gravity + gravityConstant, gravityMax), gravityMin);
+			gravity = Math.min(Math.max(gravity - gravityConstant, gravityMin), gravityMax);
+			if (gravity != 0) applyGravity();
+		}
+	}
 
-			if (this.x >= gravityRegion.x
-				&& this.x <= gravityRegion.width
-				&& this.y >= gravityRegion.y
-				&& this.y <= gravityRegion.height)
+	public function applyGravity()
+	{
+		this.y -= gravity;
+		if (!withinGravityRegion)
+		{
+			gravity = 0;
+
+			if (forceGravityRegion)
 			{
-				this.y -= gravity;
+				this.x = Math.min(Math.max(this.x, gravityRegion.x), gravityRegion.width);
+				this.y = Math.min(Math.max(this.y, gravityRegion.y), gravityRegion.height);
 			}
+		}
+		this.y += gravity;
+
+		if (withinGravityRegion && gravity != 0)
+		{
+			trace('Applied gravity: $gravity');
+			this.y -= gravity;
 		}
 	}
 }
