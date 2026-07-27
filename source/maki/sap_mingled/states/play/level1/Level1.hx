@@ -63,7 +63,7 @@ class Level1 extends Level
 			spawnObstacle(Save.random.bool((1 / 10) * 100));
 		}
 
-		if (Control.GAME_JUMP.justPressed) port.gravity = port.gravityMax;
+		if (Control.GAME_JUMP.justPressed && port.gravity == 0) port.gravity = port.gravityMax;
 
 		for (i => obstacles in [bombs, ammo])
 		{
