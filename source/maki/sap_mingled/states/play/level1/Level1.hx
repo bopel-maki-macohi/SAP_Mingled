@@ -1,5 +1,6 @@
 package maki.sap_mingled.states.play.level1;
 
+import flixel.ui.FlxBar;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.FlxG;
 import flixel.util.FlxColor;
@@ -9,8 +10,10 @@ class Level1 extends Level
 	var ground:SAPSprite;
 
 	var port:SAPSprite;
+	var portBar:FlxBar;
 
 	var enemy:SAPSprite;
+	var enemyBar:FlxBar;
 
 	var bombs:FlxTypedSpriteGroup<SAPSprite>;
 	var ammo:FlxTypedSpriteGroup<SAPSprite>;
@@ -48,6 +51,21 @@ class Level1 extends Level
 		add(port);
 		add(bombs);
 		add(enemy);
+
+		portBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.75), 20, this.port, 'health', 0, port.health, true);
+		enemyBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.75), 20, this.enemy, 'health', 0, enemy.health, true);
+
+		portBar.createFilledBar(FlxColor.RED, FlxColor.MAGENTA, true, FlxColor.BLACK, 2);
+		enemyBar.createFilledBar(FlxColor.GRAY, FlxColor.RED, true, FlxColor.BLACK, 2);
+
+		portBar.screenCenter(X);
+		enemyBar.screenCenter(X);
+
+		enemyBar.y = FlxG.height - (enemyBar.height * 3);
+		portBar.y = enemyBar.y + enemyBar.height + 10;
+
+		add(portBar);
+		add(enemyBar);
 	}
 
 	var tick = 0;
