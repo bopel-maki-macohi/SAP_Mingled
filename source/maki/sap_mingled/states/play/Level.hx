@@ -1,3 +1,3 @@
 package maki.sap_mingled.states.play;
 
-class Level extends SAPSprite {}
+class Level extends SAPState {}

@@ -3,7 +3,7 @@ package maki.sap_mingled.states.backend;
 import flixel.FlxSubState;
 import flixel.util.FlxTimer;
 
-class SAPState extends FlxSubState
+class SAPSubState extends FlxSubState
 {
 	var outroDelay:NullFloat;
 
