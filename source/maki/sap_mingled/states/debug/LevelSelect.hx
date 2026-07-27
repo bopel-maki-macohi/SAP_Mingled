@@ -16,6 +16,9 @@ class LevelSelect extends SAPState
 
 		levelText.size = 16;
 		add(levelText);
+
+		levelText.text = levels[sel];
+		if (levels.length == 1) accept();
 	}
 
 	override function update(elapsed:Float)
