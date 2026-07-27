@@ -5,7 +5,7 @@
 
 	<app title="Sinco and Portilizen : Mingled" file="Mingled" company="Maki" />
 	<app main="maki.sap_mingled.Main" />
-	<app version="0.1.0" />
+	<app version="0.2a" />
 
 	<app preloader="flixel.system.FlxPreloader" />
 	<set name="SWF_VERSION" value="11.8" />
@@ -43,11 +43,5 @@
 	<define name="SAPM_SAVE_CLEAR" if="SAVE_CLEAR" />
 
 	<define name="SAPM_MEMORY_COUNTER" if="neko || cpp || hl || html5 js" />
-
-	<define name="SAPM_START_MENU" if="SAPM_START_PLAYMENU || SAPM_START_OPTIONSMENU || SAPM_START_CONTROLSMENU" />
-	<define name="SAPM_START_PLAY" if="SAPM_START_LEVEL1 || SAPM_START_LEVEL2" />
-
-	<define name="SAPM_START_NO_INTRO" if="SAPM_START_MENU || SAPM_START_PLAY" />
-	<define name="SAPM_START_INTRO" unless="SAPM_START_NO_INTRO"/>
 
 </project>

@@ -46,30 +46,22 @@ class DebugDisplay extends TextField
 		var currentCount = times.length;
 		currentFPS = Std.int((currentCount + cacheCount) / 2);
 
-		visible = !FlxG.debugger.visible && (Save.data.ui.debug_display ?? false);
+		visible = !FlxG.debugger.visible;
 		if (currentCount != cacheCount)
 		{
 			if (visible)
 			{
 				final memory = #if (openfl >= "9.4.0") System.totalMemoryNumber #else System.totalMemory #end;
 
-				var lines = [
-					'${getLanguageKey({
-						cls: this,
-						key: 'fps',
-					})}: ${currentFPS}',
+				var lines:Array<String> = [];
 
-					(DefineMacro.defined('SAPM_MEMORY_COUNTER'))
-					? '${getLanguageKey({
-						cls: this,
-						key: 'memory',
-					})}: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB' : null
-				];
+				lines.push('FPS: ${currentFPS}');
+
+				if (DefineMacro.defined('SAPM_MEMORY_COUNTER')) lines.push('Memory: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB');
 
 				for (line in lines) if (line == null || line.trim().length < 1) lines.remove(line);
 
 				var longest = -1;
-
 				for (i => line in lines) if (line.length > lines[longest]?.length ?? 0) longest = i;
 
 				var newText = lines.join('\n');

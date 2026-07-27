@@ -4,11 +4,5 @@ typedef SaveData =
 {
 	var save_version:NullInt;
 
-	var game:SaveGameData;
-
-	var ui:SaveUIData;
-
-	var controls:SaveControlsData;
-
 	var seed:NullInt;
 }

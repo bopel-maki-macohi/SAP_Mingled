@@ -15,8 +15,6 @@ class Main extends FlxGame
 	{
 		Save.init();
 
-		LanguageManager.init();
-
 		super(gameMeta.dimensions[0], gameMeta.dimensions[1], StartingState.get(), gameMeta.framerate[0], gameMeta.framerate[0], !gameMeta.splash[0], false);
 	}
 
@@ -48,7 +46,6 @@ class Main extends FlxGame
 	{
 		super.update();
 
-		if (FlxG.keys.justPressed.F6 && FlxG.save.isBound) Save.data.ui.debug_display = !Save.data.ui.debug_display;
 		if (FlxG.keys.justPressed.F7) mouseVisible = !mouseVisible;
 
 		FlxG.mouse.visible = mouseVisible;

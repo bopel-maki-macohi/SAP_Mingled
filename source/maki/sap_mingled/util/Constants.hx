@@ -10,7 +10,7 @@ class Constants
 
 	static function get_GAME_TITLE():String
 	{
-		return getLanguageKey({key: 'misc.title'}) ?? Application?.current?.meta?.get('name') ?? 'N / A';
+		return Application?.current?.meta?.get('name') ?? 'N / A';
 	}
 
 	/**
