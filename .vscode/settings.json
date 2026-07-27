@@ -2,12 +2,6 @@
 	"search.exclude": {
 		"export/**/*.*": true
 	},
-	"haxe.importsSortOrder": "all-alphabetical",
-	"[haxe]": {
-		"editor.codeActionsOnSave": {
-			"source.sortImports": "always"
-		}
-	},
 	"editor.tabSize": 4,
 	"editor.insertSpaces": false
 }
