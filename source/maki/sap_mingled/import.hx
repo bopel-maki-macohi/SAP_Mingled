@@ -15,10 +15,14 @@ import maki.sap_mingled.data.params.audiomanager.*;
 //
 // states
 import maki.sap_mingled.states.*;
+import maki.sap_mingled.states.play.*;
+import maki.sap_mingled.states.play.level1.*;
+import maki.sap_mingled.states.backend.*;
 import maki.sap_mingled.states.debug.*;
 //
 // util (not macro)
 import maki.sap_mingled.util.*;
+import maki.sap_mingled.util.controls.*;
 import maki.sap_mingled.util.metadata.*;
 import maki.sap_mingled.util.typedefs.null_basic_type.flixel.*;
 #end

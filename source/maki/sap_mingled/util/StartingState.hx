@@ -6,6 +6,8 @@ class StartingState
 {
 	public static function get():InitialState
 	{
+		if (DefineMacro.defined('debug')) return LevelSelect;
+
 		return null;
 	}
 }
