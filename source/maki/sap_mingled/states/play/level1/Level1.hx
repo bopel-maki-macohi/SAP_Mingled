@@ -35,7 +35,7 @@ class Level1 extends Level
 		enemy.y -= enemy.height * 2;
 
 		port.enableGravity()
-			.setGravityMinMax(-10, 10)
+			.setGravityMinMax(-12, 12)
 			.setGravityConstant(0.8)
 			.setGravityRegion(0, 0, FlxG.width, ground.y - port.height)
 			.enableForcedGravityRegion();
