@@ -31,7 +31,7 @@ class LevelSelect extends SAPState
 		levelText.text = levels[sel];
 		levelText.screenCenter();
 
-		if (Control.UI_ACCEPT) accept();
+		if (Control.UI_ACCEPT.justPressed) accept();
 	}
 
 	function accept()
