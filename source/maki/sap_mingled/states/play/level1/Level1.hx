@@ -52,8 +52,8 @@ class Level1 extends Level
 		add(bombs);
 		add(enemy);
 
-		portBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.75), 20, this.port, 'health', 0, port.health, true);
-		enemyBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.75), 20, this.enemy, 'health', 0, enemy.health, true);
+		portBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.5), 20, this.port, 'health', 0, port.health, true);
+		enemyBar = new FlxBar(0, 0, LEFT_TO_RIGHT, Math.round(FlxG.width * 0.5), 20, this.enemy, 'health', 0, enemy.health, true);
 
 		portBar.createFilledBar(FlxColor.RED, FlxColor.MAGENTA, true, FlxColor.BLACK, 2);
 		enemyBar.createFilledBar(FlxColor.GRAY, FlxColor.RED, true, FlxColor.BLACK, 2);
@@ -61,8 +61,8 @@ class Level1 extends Level
 		portBar.screenCenter(X);
 		enemyBar.screenCenter(X);
 
-		enemyBar.y = FlxG.height - (enemyBar.height * 3);
-		portBar.y = enemyBar.y + enemyBar.height + 10;
+		enemyBar.y = (enemyBar.height * 2);
+		portBar.y = FlxG.height - (portBar.height * 2);
 
 		add(portBar);
 		add(enemyBar);
@@ -105,12 +105,25 @@ class Level1 extends Level
 					obstacles.remove(obstacle);
 					obstacle.destroy();
 
-					if (bomb) {}
+					if (bomb)
+					{
+						port.health--;
+					}
 					else {}
 
 					continue;
 				}
 			}
+		}
+
+		if (port.health < 1)
+		{
+			throw 'Boom. Boom. Boom. You\'re dead.';
+		}
+
+		if (enemy.health < 1)
+		{
+			throw 'Boom. Youre dead.';
 		}
 	}
 
