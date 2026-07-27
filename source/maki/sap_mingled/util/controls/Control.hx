@@ -8,4 +8,6 @@ class Control
 	public static var UI_RIGHT:ControlKeybind = new ControlKeybind([D, RIGHT]);
 
 	public static var UI_ACCEPT:ControlKeybind = new ControlKeybind([ENTER]);
+
+	public static var GAME_JUMP:ControlKeybind = new ControlKeybind([SPACE]);
 }

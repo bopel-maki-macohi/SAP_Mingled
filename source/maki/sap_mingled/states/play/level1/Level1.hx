@@ -21,7 +21,7 @@ class Level1 extends Level
 		super.create();
 
 		ground = new SAPSprite().makeGraphic(Math.round(FlxG.width * 1.1), 120);
-		port = new SAPSprite().makeGraphic(32, 32, FlxColor.MAGENTA);
+		port = new SAPSprite().makeGraphic(32, 32, FlxColor.MAGENTA).enableGravity();
 		enemy = new SAPSprite().makeGraphic(64, 64, FlxColor.RED);
 
 		ground.screenCenter();
@@ -31,7 +31,9 @@ class Level1 extends Level
 		enemy.screenCenter();
 
 		enemy.y -= enemy.height * 2;
-		port.y = ground.y - port.height;
+
+		port.setGravityRegion(0, 0, FlxG.width, ground.y - port.height);
+		port.setGravityMinMax(-10, 10);
 
 		enemy.health = 10;
 		port.health = 5;
@@ -39,5 +41,13 @@ class Level1 extends Level
 		add(ground);
 		add(port);
 		add(enemy);
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (Control.GAME_JUMP.justPressed)
+			port.gravity = port.gravityMin;
 	}
 }
