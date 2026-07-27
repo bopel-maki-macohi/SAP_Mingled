@@ -119,10 +119,6 @@ class SAPSprite extends FlxSprite
 		}
 		this.y += gravity;
 
-		if (withinGravityRegion && gravity != 0)
-		{
-			trace('Applied gravity: $gravity');
-			this.y -= gravity;
-		}
+		if (withinGravityRegion && gravity != 0) this.y -= gravity;
 	}
 }
