@@ -34,7 +34,7 @@ class Main extends FlxGame
 
 		// FlxG.scaleMode = new FixedScaleMode();
 
-		FlxG.stage?.addChild(debugDisplay);
+		if (DefineMacro.defined('DEBUG_DISPLAY')) FlxG.stage?.addChild(debugDisplay);
 	}
 
 	override function step()

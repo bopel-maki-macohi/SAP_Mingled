@@ -55,9 +55,9 @@ class DebugDisplay extends TextField
 
 				var lines:Array<String> = [];
 
+				if (DefineMacro.defined('DEBUG_DISPLAY_GAME_VERSION')) lines.push('SAPM: ${Constants.GAME_VERSION}\n');
 				lines.push('FPS: ${currentFPS}');
-
-				if (DefineMacro.defined('SAPM_MEMORY_COUNTER')) lines.push('Memory: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB');
+				if (DefineMacro.defined('DEBUG_DISPLAY_MEMORY_COUNTER')) lines.push('Memory: ${FlxMath.roundDecimal((memory / 1024) / 1000, 1)} MB');
 
 				for (line in lines) if (line == null || line.trim().length < 1) lines.remove(line);
 

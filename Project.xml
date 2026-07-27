@@ -39,9 +39,8 @@
 	<haxedef name="HXCPP_STACK_LINE" />
 	<haxedef name="HXCPP_STACK_TRACE" />
 
-	<!-- Backwards compatability -->
-	<define name="SAPM_SAVE_CLEAR" if="SAVE_CLEAR" />
-
-	<define name="SAPM_MEMORY_COUNTER" if="neko || cpp || hl || html5 js" />
+	<define name="DEBUG_DISPLAY" />
+	<define name="DEBUG_DISPLAY_MEMORY_COUNTER" if="neko || cpp || hl || html5 js" />
+	<define name="DEBUG_DISPLAY_GAME_VERSION" />
 
 </project>
